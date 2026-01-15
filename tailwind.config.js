@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'marcheto-brown': '#2d1810',
+        'marcheto-dark': '#1a0f0a',
+        'marcheto-gold': '#f5a623',
+      },
+      fontFamily: {
+        'grotesk': ['Schibsted Grotesk', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
