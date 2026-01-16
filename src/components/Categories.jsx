@@ -44,59 +44,8 @@ export default function Categories() {
 
   return (
     <section ref={sectionRef} className="relative w-full bg-white">
-      {/* Curva BIANCA che parte ALTA ai lati e SCENDE al centro */}
-      <div
-        className="absolute left-0 right-0 w-full pointer-events-none"
-        style={{
-          top: '-350px',
-          height: '380px',
-          zIndex: 10
-        }}
-      >
-        <svg
-          viewBox="0 0 1440 380"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full"
-          preserveAspectRatio="none"
-        >
-          {/* Curva bianca: ALTA ai lati, SCENDE al centro (concavità verso il basso) */}
-          <path
-            d="M0 0 Q720 350 1440 0 L1440 380 L0 380 Z"
-            fill="white"
-          />
-        </svg>
-      </div>
-
-      {/* Pulsante CHIAMA - cerchio grande bianco con bordo giallo */}
-      <div
-        className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center"
-        style={{
-          top: '-80px',
-          zIndex: 20
-        }}
-      >
-        {/* Freccia rossa sopra */}
-        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-red-600 flex items-center justify-center mb-[-20px] z-10 shadow-lg">
-          <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </div>
-
-        {/* Cerchio CHIAMA */}
-        <a
-          href="tel:+390364657048"
-          className="group flex items-center justify-center w-32 h-32 md:w-40 md:h-40 rounded-full bg-white shadow-2xl hover:shadow-3xl transition-shadow"
-          style={{
-            border: '5px solid #f5a623'
-          }}
-        >
-          <span className="text-gray-900 font-bold tracking-widest uppercase text-base md:text-xl">Chiama</span>
-        </a>
-      </div>
-
       {/* Contenuto categorie */}
-      <div className="w-full max-w-6xl mx-auto px-4 md:px-8 pt-24 md:pt-28 pb-16 md:pb-20">
+      <div className="w-full max-w-6xl mx-auto px-4 md:px-8 pt-32 md:pt-40 pb-16 md:pb-20">
         <div className="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-4">
           {categories.map((cat, index) => (
             <a
