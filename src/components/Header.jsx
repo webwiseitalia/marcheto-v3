@@ -1,35 +1,9 @@
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
 import logo from '../assets/images/logo_marcheto.png'
 
 export default function Header() {
-  const headerRef = useRef(null)
-  const phoneRef = useRef(null)
-  const navRef = useRef(null)
-  const ctaRef = useRef(null)
-
-  useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-
-    tl.fromTo(phoneRef.current,
-      { opacity: 0, x: -30 },
-      { opacity: 1, x: 0, duration: 0.8 }
-    )
-    .fromTo(navRef.current.children,
-      { opacity: 0, y: -20 },
-      { opacity: 1, y: 0, duration: 0.6, stagger: 0.1 },
-      '-=0.4'
-    )
-    .fromTo(ctaRef.current,
-      { opacity: 0, x: 30 },
-      { opacity: 1, x: 0, duration: 0.8 },
-      '-=0.4'
-    )
-  }, [])
 
   return (
     <header
-      ref={headerRef}
       className="fixed top-0 left-0 right-0 z-50"
     >
       {/* Navbar principale - full width, sfondo bordeaux scuro */}
@@ -39,7 +13,7 @@ export default function Header() {
       >
         <div className="w-full flex items-center justify-between">
           {/* Phone */}
-          <div ref={phoneRef} className="flex items-center gap-3">
+          <div className="flex items-center gap-3">
             <a
               href="tel:+390364657048"
               className="flex items-center gap-3 text-white hover:text-[#f5a623] transition-colors"
@@ -54,7 +28,7 @@ export default function Header() {
           </div>
 
           {/* Navigation */}
-          <nav ref={navRef} className="flex items-center gap-8 md:gap-12">
+          <nav className="flex items-center gap-8 md:gap-12">
             <a href="#home" className="text-white hover:text-[#f5a623] transition-colors font-medium tracking-wider text-sm uppercase">
               Home
             </a>
@@ -67,7 +41,7 @@ export default function Header() {
           </nav>
 
           {/* CTA */}
-          <div ref={ctaRef}>
+          <div>
             <a
               href="tel:+390364657048"
               className="group hidden sm:flex items-center gap-3 bg-black/20 border border-white/20 text-white px-7 py-3 rounded-full font-medium text-xs uppercase tracking-widest hover:bg-white hover:text-[#230500] transition-all duration-300 overflow-hidden relative"

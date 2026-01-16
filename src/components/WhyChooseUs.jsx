@@ -1,107 +1,84 @@
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import meatBlackIcon from '../assets/icons/meat-black.svg'
-
-gsap.registerPlugin(ScrollTrigger)
+import rosemarine2 from '../assets/images/rosemarine-2.png'
+import { GiMeat, GiChefToque, GiSausage, GiCookingPot } from 'react-icons/gi'
+import { BiLike } from 'react-icons/bi'
+import { HiOutlineHome } from 'react-icons/hi'
 
 const features = [
   {
-    title: 'Carne fresca',
-    description: 'Selezioniamo solo le migliori carni fresche ogni giorno'
+    icon: <GiMeat className="w-12 h-12" />,
+    title: 'Carne sempre fresca',
+    description: 'Prima ancora di una griglieria siamo una macelleria, la materia prima è la nostra priorità.'
   },
   {
-    title: 'Grigliatori esperti',
-    description: 'I nostri maestri della griglia hanno anni di esperienza'
+    icon: <GiChefToque className="w-12 h-12" />,
+    title: 'I migliori grigliatori',
+    description: 'Anni di esperienza ci hanno portato a essere ciò che siamo oggi.'
   },
   {
-    title: 'Passione',
-    description: 'La passione per la carne è nel nostro DNA da generazioni'
+    icon: <GiSausage className="w-12 h-12" />,
+    title: 'La nostra passione',
+    description: 'Per noi non è un lavoro, bensì una passione che viene tramandata nella nostra famiglia di padre in figlio.'
   },
   {
-    title: 'Rapporto personale',
-    description: 'Ogni cliente è speciale, ti consigliamo come amici'
+    icon: <BiLike className="w-12 h-12" />,
+    title: 'Rapporto cliente-personale',
+    description: 'Il nostro team ci permette di instaurare un rapporto personale con il cliente, per fargli vivere la migliore esperienza!'
   },
   {
-    title: 'Ambiente accogliente',
-    description: 'Un locale dove sentirti a casa e goderti il momento'
+    icon: <HiOutlineHome className="w-12 h-12" />,
+    title: 'Sede accogliente',
+    description: 'Sentiti a casa nel nostro locale! la carne esposta e il profumo di brace ti faranno amare da subito la nostra griglieria'
   },
   {
+    icon: <GiCookingPot className="w-12 h-12" />,
     title: 'Ricette autentiche',
-    description: 'Tradizione e innovazione nelle nostre preparazioni'
+    description: 'Se volete la carne stracotta saremo lieti di indicarvi il kebab più vicino :)'
   }
 ]
 
 export default function WhyChooseUs() {
-  const sectionRef = useRef(null)
-  const titleRef = useRef(null)
-  const cardsRef = useRef([])
-
-  useEffect(() => {
-    gsap.fromTo(titleRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
-        }
-      }
-    )
-
-    cardsRef.current.forEach((card, index) => {
-      gsap.fromTo(card,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          delay: index * 0.1,
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          }
-        }
-      )
-    })
-  }, [])
-
   return (
-    <section ref={sectionRef} className="w-full bg-white py-16 md:py-24">
+    <section className="w-full bg-white py-16 md:py-24 relative overflow-hidden">
+      {/* Rametto rosmarino a destra */}
+      <div className="absolute bottom-0 right-0 w-48 md:w-64 translate-x-1/4 translate-y-1/4 pointer-events-none">
+        <img src={rosemarine2} alt="" className="w-full h-auto" />
+      </div>
+
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
-        {/* Titolo */}
-        <div ref={titleRef} className="text-center mb-12 md:mb-16">
-          <span className="text-[#f5a623] text-sm uppercase tracking-widest font-medium">
-            perché sceglierci
+        {/* Titolo con sottotitolo rosso */}
+        <div className="flex items-start justify-center gap-4 mb-12 md:mb-16">
+          <span className="text-red-600 text-sm md:text-base uppercase tracking-widest font-medium pt-2">
+            Perchè mangiare<br />da noi?
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mt-4">
-            Qualità locale
+          <div className="w-[1px] h-16 bg-gray-300 mx-4" />
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 uppercase leading-tight">
+            I nostri clienti ci<br />conoscono per:
           </h2>
-          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Miglior griglieria della Valle Camonica
-          </p>
         </div>
 
-        {/* Grid features */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* Linea orizzontale */}
+        <div className="w-full h-[1px] bg-gray-200 mb-0" />
+
+        {/* Grid features - 2 colonne */}
+        <div className="grid grid-cols-1 md:grid-cols-2">
           {features.map((feature, index) => (
             <div
               key={index}
-              ref={el => cardsRef.current[index] = el}
-              className="flex gap-4 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-[#f5a623] hover:shadow-lg transition-all"
+              className={`flex items-start gap-6 p-8 md:p-10 border-b border-gray-200 ${
+                index % 2 === 0 ? 'md:border-r' : ''
+              }`}
             >
-              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#f5a623]/10 flex items-center justify-center">
-                <img src={meatBlackIcon} alt="" className="w-8 h-8" />
+              {/* Icona */}
+              <div className="flex-shrink-0 text-gray-400">
+                {feature.icon}
               </div>
+
+              {/* Testo */}
               <div>
-                <h3 className="text-gray-900 font-semibold text-lg mb-1">
+                <h3 className="text-gray-900 font-bold uppercase tracking-wide text-base mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-500 text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </div>

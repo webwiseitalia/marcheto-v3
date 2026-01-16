@@ -6,6 +6,7 @@ import MenuProducts from './components/MenuProducts'
 import Reviews from './components/Reviews'
 import InterSection from './components/InterSection'
 import WhyChooseUs from './components/WhyChooseUs'
+import InterBanner from './components/InterBanner'
 import Footer from './components/Footer'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Reviews />
       <InterSection />
       <WhyChooseUs />
+      <InterBanner />
       <Footer />
     </div>
   )

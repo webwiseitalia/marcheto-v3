@@ -1,5 +1,3 @@
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
 import steak from '../assets/images/steak.png'
 import bgImage from '../assets/images/bg-image.png'
 import originalText from '../assets/images/slider-02.png'
@@ -10,17 +8,6 @@ import rosemarine from '../assets/images/rosemarine.png'
 import rosemarine2 from '../assets/images/rosemarine-2.png'
 
 export default function Hero() {
-  const steakRef = useRef(null)
-
-  useEffect(() => {
-    // Rotazione continua del piatto
-    gsap.to(steakRef.current, {
-      rotation: 360,
-      duration: 20,
-      repeat: -1,
-      ease: 'none'
-    })
-  }, [])
 
   return (
     <section
@@ -87,7 +74,7 @@ export default function Hero() {
           zIndex: 5
         }}
       >
-        <div ref={steakRef} className="w-full">
+        <div className="w-full">
           <img src={steak} alt="Bistecca" className="w-full h-auto" />
         </div>
       </div>
@@ -119,7 +106,7 @@ export default function Hero() {
       <div
         className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center"
         style={{
-          bottom: '400px',
+          bottom: '300px',
           zIndex: 20
         }}
       >
