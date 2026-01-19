@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo_marcheto.png'
+import rosemarine from '../assets/images/rosemarine.png'
+import rosemarine2 from '../assets/images/rosemarine-2.png'
+import menuHeroBg from '../assets/images/menu-hero-bg.webp'
 
 // Immagini menu
 import fiorentina from '../assets/menu/fiorentina.jpg'
@@ -12,29 +15,61 @@ import tartare from '../assets/menu/tartare.jpg'
 
 const menuCategories = {
   antipasti: [
-    { name: 'Tartare di Manzo', description: 'Carne cruda tagliata al coltello, condita con olio EVO e limone', price: '14.00', image: tartare, badge: 'New' },
-    { name: 'Carpaccio di Fassona', description: 'Fette sottili di fassona piemontese con rucola e grana', price: '12.00', image: tartare, badge: 'Chef love' },
-    { name: 'Tagliere di Salumi', description: 'Selezione dei migliori salumi nostrani', price: '16.00', image: asado },
-    { name: 'Bruschette Miste', description: 'Pane tostato con pomodoro, lardo e nduja', price: '8.00', image: tartare },
+    { name: 'Tagliere Marcheto', description: 'Affettati misti, salame di cervo, tegolino caldo di polenta con formaggio.', price: '15.00', image: tagliata, badge: 'New', tag: 'Da provare' },
+    { name: 'Slinzega', description: 'Produzione propria con grana e olio e limone.', price: '12.00', image: tartare },
+    { name: 'Tagliere Camuno', description: 'Affettati misti, formaggi misti camuni, sottaceti della casa.', price: '18.00', image: tagliata },
+    { name: 'Carne Salata', description: 'Con cipolle.', price: '16.00', image: tartare, badge: 'Hot', tag: 'Chef love' },
+    { name: 'Carpaccio', description: 'Con scaglie di grana.', price: '18.00', image: costata },
+    { name: 'Tartare', description: 'Di manzo o di cavallo.', price: '20.00', image: tartare, badge: 'Hot', tag: 'Chef love' },
   ],
   contorni: [
-    { name: 'Patate al Forno', description: 'Patate croccanti cotte al forno con rosmarino', price: '5.00', image: picanha },
-    { name: 'Insalata Mista', description: 'Insalata fresca di stagione', price: '4.00', image: picanha },
-    { name: 'Verdure Grigliate', description: 'Zucchine, melanzane e peperoni alla griglia', price: '6.00', image: picanha, badge: 'Must try' },
-    { name: 'Fagioli alla Texana', description: 'Fagioli in salsa BBQ affumicata', price: '5.50', image: picanha },
+    { name: 'Patate al Forno', description: 'Patate croccanti cotte al forno con rosmarino.', price: '5.00', image: picanha },
+    { name: 'Insalata Mista', description: 'Insalata fresca di stagione.', price: '4.00', image: picanha },
+    { name: 'Verdure Grigliate', description: 'Zucchine, melanzane e peperoni alla griglia.', price: '6.00', image: picanha, tag: 'Da provare' },
+    { name: 'Fagioli alla Texana', description: 'Fagioli in salsa BBQ affumicata.', price: '5.50', image: picanha },
   ],
   panini: [
-    { name: 'Panino Marcheto', description: 'Pulled pork, coleslaw, salsa BBQ', price: '12.00', image: asado, badge: 'Hot' },
-    { name: 'Burger Classico', description: 'Macinato di manzo, cheddar, bacon, salsa speciale', price: '14.00', image: asado, badge: 'Must try' },
-    { name: 'Burger Gourmet', description: 'Angus, brie, cipolla caramellata, rucola', price: '16.00', image: asado },
-    { name: 'Hot Dog Americano', description: 'Wurstel di manzo, senape, ketchup, cipolla croccante', price: '8.00', image: asado },
+    { name: 'Panino Marcheto', description: 'Pulled pork, coleslaw, salsa BBQ.', price: '12.00', image: asado, badge: 'Hot' },
+    { name: 'Burger Classico', description: 'Macinato di manzo, cheddar, bacon, salsa speciale.', price: '14.00', image: asado, tag: 'Da provare' },
+    { name: 'Burger Gourmet', description: 'Angus, brie, cipolla caramellata, rucola.', price: '16.00', image: asado },
+    { name: 'Hot Dog Americano', description: 'Wurstel di manzo, senape, ketchup, cipolla croccante.', price: '8.00', image: asado },
   ],
   drinks: [
-    { name: 'Coca Cola', description: 'Lattina 33cl', price: '3.00', image: picanha },
-    { name: 'Birra Artigianale', description: 'Selezione di birre locali alla spina', price: '5.00', image: picanha, badge: 'New' },
-    { name: 'Vino Rosso della Casa', description: 'Calice di vino rosso selezionato', price: '4.00', image: picanha },
-    { name: 'Acqua Minerale', description: 'Naturale o frizzante 75cl', price: '2.50', image: picanha },
+    { name: 'Coca Cola', description: 'Lattina 33cl.', price: '3.00', image: picanha },
+    { name: 'Birra Artigianale', description: 'Selezione di birre locali alla spina.', price: '5.00', image: picanha, badge: 'New' },
+    { name: 'Vino Rosso della Casa', description: 'Calice di vino rosso selezionato.', price: '4.00', image: picanha },
+    { name: 'Acqua Minerale', description: 'Naturale o frizzante 75cl.', price: '2.50', image: picanha },
   ],
+}
+
+// Icone per le categorie
+const categoryIcons = {
+  antipasti: (
+    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M12 4c-4 0-7 2-7 4v2c0 2 3 4 7 4s7-2 7-4V8c0-2-3-4-7-4z" />
+      <path d="M5 10v4c0 2 3 4 7 4s7-2 7-4v-4" />
+      <path d="M5 14v3c0 2 3 4 7 4s7-2 7-4v-3" />
+    </svg>
+  ),
+  contorni: (
+    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M6 6l3 3M6 6l-3 3M18 6l-3 3M18 6l3 3" />
+      <circle cx="12" cy="14" r="6" />
+    </svg>
+  ),
+  panini: (
+    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M4 12h16M4 12c0-3 4-6 8-6s8 3 8 6M4 12v2c0 2 4 4 8 4s8-2 8-4v-2" />
+      <path d="M8 12v4M12 12v4M16 12v4" />
+    </svg>
+  ),
+  drinks: (
+    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M8 2h8l-1 10H9L8 2z" />
+      <path d="M9 12h6v2c0 3-1.5 6-3 6s-3-3-3-6v-2z" />
+      <path d="M10 20h4" />
+    </svg>
+  ),
 }
 
 const categoryLabels = {
@@ -49,116 +84,193 @@ export default function MenuPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="w-full py-4 px-4 md:px-8 bg-white border-b border-gray-100">
+      {/* Header - semi-trasparente sopra l'hero */}
+      <header className="w-full bg-[#8B0000]/80 py-3 px-4 md:px-8 absolute top-0 left-0 right-0 z-30">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/">
-            <img src={logo} alt="Marcheto" className="h-12" />
-          </Link>
-          <nav className="flex items-center gap-8">
-            <Link to="/" className="text-gray-700 hover:text-gray-900 text-sm uppercase tracking-wider">
+          {/* Telefono a sinistra */}
+          <a href="tel:+390364657048" className="flex items-center gap-3 text-white text-sm">
+            <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+            </div>
+            <span className="font-medium hidden sm:inline">+39 0364 657048</span>
+          </a>
+
+          {/* Centro: navigazione e logo */}
+          <nav className="flex items-center gap-8 md:gap-12">
+            <Link to="/" className="text-white text-xs md:text-sm uppercase tracking-widest hover:opacity-80 transition-opacity">
               Home
             </Link>
-            <Link to="/menu" className="text-gray-900 font-semibold text-sm uppercase tracking-wider">
+            <Link to="/">
+              <img src={logo} alt="Marcheto" className="h-8 md:h-10" />
+            </Link>
+            <Link to="/menu" className="text-white text-xs md:text-sm uppercase tracking-widest font-medium">
               Menu
             </Link>
-            <a
-              href="tel:+390364657048"
-              className="hidden sm:flex items-center gap-2 bg-[#2d1810] text-white px-6 py-3 rounded-full font-medium text-xs uppercase tracking-widest hover:bg-[#1a0f0a] transition-colors"
-            >
-              Prenota Ora
-            </a>
           </nav>
+
+          {/* Prenota Ora a destra */}
+          <a
+            href="tel:+390364657048"
+            className="flex items-center gap-2 border border-white/30 text-white px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm uppercase tracking-widest hover:bg-white/10 transition-colors"
+          >
+            <span className="hidden sm:inline">Prenota Ora</span>
+            <span className="sm:hidden">Prenota</span>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </a>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="w-full py-16 md:py-24 bg-[#f5f5f0] relative overflow-hidden">
+      {/* Hero Section con immagine di sfondo */}
+      <section className="w-full relative">
+        {/* Immagine di sfondo che include il bordo grunge e le decorazioni */}
+        <img
+          src={menuHeroBg}
+          alt=""
+          className="w-full h-auto"
+        />
+
+        {/* Contenuto hero sovrapposto all'immagine */}
+        <div className="absolute inset-0 flex items-center justify-center pb-12 md:pb-16">
+          <div className="flex items-center justify-center gap-4 md:gap-6">
+            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider" style={{ fontFamily: 'Georgia, serif' }}>
+              Il nostro menù
+            </h1>
+            <div className="w-px h-8 md:h-10 bg-white/50" />
+            <span className="text-[#f5a623] text-sm sm:text-base md:text-lg uppercase tracking-widest font-medium">
+              Esperienza indimenticabile
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Sezione Intro - sfondo bianco/crema */}
+      <section className="w-full bg-white pt-20 md:pt-28 pb-16 md:pb-24 relative">
+        {/* Pallino rosso sopra l'immagine */}
+        <div className="absolute left-[18%] md:left-[22%] top-12 md:top-16 w-3 h-3 rounded-full bg-[#c41e3a] z-10" />
+
+        {/* Pallino rosso estrema sinistra */}
+        <div className="absolute left-4 md:left-8 bottom-1/3 w-3 h-3 rounded-full bg-[#c41e3a]" />
+
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-            {/* Testo */}
-            <div className="text-center md:text-left">
-              <span className="text-red-600 text-sm uppercase tracking-widest font-medium mb-4 block">
-                Esperienza indimenticabile
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 uppercase leading-tight mb-6">
-                Il nostro<br />menù
-              </h1>
-              <p className="text-gray-600 text-lg max-w-md mb-8">
-                Una selezione curata di piatti freschi e genuini, preparati con le migliori carni selezionate.
-              </p>
-              <a
-                href="tel:+390364657048"
-                className="inline-flex items-center gap-3 bg-[#2d1810] text-white px-8 py-4 rounded-full font-medium text-sm uppercase tracking-widest hover:bg-[#1a0f0a] transition-colors"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                +39 0364 657048
-              </a>
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
+            {/* Immagine a sinistra */}
+            <div className="flex-1 max-w-lg">
+              <img
+                src={tagliata}
+                alt="Carne alla griglia"
+                className="w-full rounded-lg shadow-2xl"
+              />
             </div>
 
-            {/* Immagine circolare */}
-            <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-white shadow-2xl">
-                <img
-                  src={fiorentina}
-                  alt="Carne alla griglia"
-                  className="w-full h-full object-cover"
-                />
+            {/* Testo centrale */}
+            <div className="flex-1 relative">
+              {/* Sottotitolo rosso con linea */}
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-[2px] bg-[#c41e3a]" />
+                <span className="text-[#c41e3a] text-sm uppercase tracking-widest font-medium">
+                  Vieni a trovarci
+                </span>
               </div>
-              {/* Decorazione */}
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xs uppercase">
-                <span className="text-center leading-tight">Dal<br />1985</span>
+
+              {/* Titolo grande */}
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-4 uppercase">
+                Il nostro<br />menu.
+              </h2>
+
+              {/* Pallino rosa piccolo */}
+              <div className="w-1.5 h-1.5 rounded-full bg-pink-300 mb-6" />
+
+              {/* Descrizione */}
+              <p className="text-gray-500 text-base leading-relaxed max-w-md">
+                Il nostro menù, una selezione curata di piatti freschi e genuini, pensati per ogni gusto.
+              </p>
+            </div>
+
+            {/* Colonna destra: pallino + testo verticale */}
+            <div className="hidden lg:flex flex-col items-center gap-4">
+              {/* Pallino rosso */}
+              <div className="w-3 h-3 rounded-full bg-[#c41e3a]" />
+
+              {/* Testo verticale */}
+              <div
+                className="text-[#c41e3a] text-sm font-bold uppercase tracking-widest"
+                style={{ writingMode: 'vertical-rl' }}
+              >
+                Chiamaci - 0364 657048
               </div>
+
+              {/* Pallino piccolo in basso */}
+              <div className="w-1.5 h-1.5 rounded-full bg-[#c41e3a]/50 mt-auto" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Menu Section */}
-      <section className="w-full py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12 md:mb-16">
+      {/* Sezione Menu Completo */}
+      <section className="w-full bg-white py-16 md:py-24 relative">
+        {/* Rosmarino decorativo a sinistra */}
+        <div className="absolute left-0 top-1/4 w-32 md:w-48 pointer-events-none">
+          <img src={rosemarine} alt="" className="w-full h-auto" />
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          {/* Titolo sezione */}
+          <div className="flex items-center justify-center gap-4 mb-12">
+            <span className="text-red-600 text-sm uppercase tracking-widest font-medium">
+              Piatti deliziosi
+            </span>
+            <div className="w-px h-6 bg-gray-300" />
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 uppercase tracking-wide">
+              Menù completo
+            </h2>
+          </div>
+
+          {/* Tabs con icone */}
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16 mb-12 md:mb-16">
             {Object.keys(categoryLabels).map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-colors ${
+                className={`flex flex-col items-center gap-2 transition-colors ${
                   activeCategory === cat
-                    ? 'bg-[#2d1810] text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? 'text-red-600'
+                    : 'text-gray-400 hover:text-gray-600'
                 }`}
               >
-                {categoryLabels[cat]}
+                {categoryIcons[cat]}
+                <span className={`text-sm uppercase tracking-wider ${
+                  activeCategory === cat ? 'font-semibold border-b-2 border-red-600 pb-1' : ''
+                }`}>
+                  {categoryLabels[cat]}
+                </span>
               </button>
             ))}
           </div>
 
-          {/* Menu Items Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {/* Menu Items Grid - 2 colonne */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
             {menuCategories[activeCategory].map((item, index) => (
               <div
                 key={index}
-                className="flex gap-4 md:gap-6 p-4 md:p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                className="flex items-center gap-4 py-4 border-b border-dashed border-gray-300"
               >
-                {/* Immagine */}
+                {/* Immagine circolare */}
                 <div className="relative flex-shrink-0">
-                  <div className="w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shadow-lg">
                     <img
                       src={item.image}
                       alt={item.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  {/* Badge */}
+                  {/* Badge NEW/HOT */}
                   {item.badge && (
-                    <span className={`absolute -top-2 -left-2 px-2 py-1 rounded-full text-xs font-bold text-white ${
-                      item.badge === 'New' ? 'bg-green-500' :
-                      item.badge === 'Hot' ? 'bg-red-500' :
-                      item.badge === 'Chef love' ? 'bg-pink-500' :
-                      'bg-orange-500'
+                    <span className={`absolute -top-1 -left-1 px-2 py-0.5 rounded-full text-[10px] font-bold text-white uppercase ${
+                      item.badge === 'New' ? 'bg-green-500' : 'bg-red-500'
                     }`}>
                       {item.badge}
                     </span>
@@ -166,10 +278,33 @@ export default function MenuPage() {
                 </div>
 
                 {/* Info */}
-                <div className="flex-1 flex flex-col justify-center">
-                  <h3 className="text-gray-900 font-bold text-lg mb-1">{item.name}</h3>
-                  <p className="text-gray-500 text-sm mb-3">{item.description}</p>
-                  <span className="text-[#2d1810] font-bold text-xl">€{item.price}</span>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="text-gray-900 font-bold text-base uppercase">{item.name}</h3>
+                    {/* Tag Da provare / Chef love */}
+                    {item.tag && (
+                      <span className="flex items-center gap-1 px-2 py-0.5 rounded-full border border-gray-300 text-[10px] text-gray-500 uppercase">
+                        {item.tag === 'Chef love' && (
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                          </svg>
+                        )}
+                        {item.tag === 'Da provare' && (
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                          </svg>
+                        )}
+                        {item.tag}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-gray-500 text-sm">{item.description}</p>
+                </div>
+
+                {/* Prezzo */}
+                <div className="flex-shrink-0 text-right">
+                  <span className="text-gray-400 text-xs align-top">€</span>
+                  <span className="text-gray-900 font-bold text-xl">{item.price}</span>
                 </div>
               </div>
             ))}
