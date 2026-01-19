@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Categories from './components/Categories'
@@ -8,8 +9,9 @@ import InterSection from './components/InterSection'
 import WhyChooseUs from './components/WhyChooseUs'
 import InterBanner from './components/InterBanner'
 import Footer from './components/Footer'
+import MenuPage from './pages/MenuPage'
 
-function App() {
+function HomePage() {
   return (
     <div className="min-h-screen">
       <Header />
@@ -23,6 +25,17 @@ function App() {
       <InterBanner />
       <Footer />
     </div>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/menu" element={<MenuPage />} />
+      </Routes>
+    </Router>
   )
 }
 

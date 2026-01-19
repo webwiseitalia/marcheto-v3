@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import burger from '../assets/images/burger.png'
 import rosemarine from '../assets/images/rosemarine.png'
 import rosemarine2 from '../assets/images/rosemarine-2.png'
@@ -118,12 +119,12 @@ export default function StreetFood() {
       </div>
 
       {/* Cerchio nero ESPLORA MENU - a cavallo con la sezione sotto */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20">
-        <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-gray-900 flex flex-col items-center justify-center text-white shadow-xl">
+      <Link to="/menu" className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20">
+        <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-gray-900 flex flex-col items-center justify-center text-white shadow-xl hover:bg-gray-800 transition-colors cursor-pointer">
           <span className="text-xs md:text-sm uppercase tracking-widest font-medium">Esplora</span>
           <span className="text-lg md:text-xl uppercase tracking-wider font-bold">Menu</span>
         </div>
-      </div>
+      </Link>
     </section>
   )
 }
