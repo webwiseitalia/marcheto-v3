@@ -1,6 +1,11 @@
+import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo_marcheto.png'
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo(0, 0)
+  }
+
   return (
     <footer
       className="w-full py-12 md:py-16 relative"
@@ -25,7 +30,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
           {/* Logo */}
           <div className="flex justify-center md:justify-start">
-            <img src={logo} alt="Marcheto" className="h-16" />
+            <img
+              src={logo}
+              alt="Marcheto"
+              title="Logo Marcheto"
+              loading="lazy"
+              width={128}
+              height={64}
+              className="h-16"
+            />
           </div>
 
           {/* Vieni a trovarci */}
@@ -86,9 +99,11 @@ export default function Footer() {
         {/* Bottom: Link e Copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Link navigazione */}
-          <div className="flex gap-6 text-gray-400 text-sm">
-            <a href="#" className="hover:text-white transition-colors">Home</a>
-            <a href="#" className="hover:text-white transition-colors">Menu</a>
+          <div className="flex flex-wrap gap-6 text-gray-400 text-sm justify-center">
+            <Link to="/" onClick={scrollToTop} className="hover:text-white transition-colors">Home</Link>
+            <Link to="/menu" onClick={scrollToTop} className="hover:text-white transition-colors">Menu</Link>
+            <Link to="/privacy-policy" onClick={scrollToTop} className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/cookie-policy" onClick={scrollToTop} className="hover:text-white transition-colors">Cookie Policy</Link>
           </div>
 
           {/* Copyright */}

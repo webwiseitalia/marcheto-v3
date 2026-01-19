@@ -41,7 +41,7 @@ export default function WhyChooseUs() {
     <section className="w-full bg-white py-16 md:py-24 relative overflow-hidden">
       {/* Rametto rosmarino a destra */}
       <div className="absolute bottom-0 right-0 w-48 md:w-64 translate-x-1/4 translate-y-1/4 pointer-events-none">
-        <img src={rosemarine2} alt="" className="w-full h-auto" />
+        <img src={rosemarine2} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={256} height={320} className="w-full h-auto" />
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8">

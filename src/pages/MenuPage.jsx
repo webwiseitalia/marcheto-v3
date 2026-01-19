@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo_marcheto.png'
 import rosemarine from '../assets/images/rosemarine.png'
@@ -12,15 +12,17 @@ import tagliata from '../assets/menu/tagliata.jpg'
 import picanha from '../assets/menu/picanha.jpg'
 import asado from '../assets/menu/asado-argentino.jpg'
 import tartare from '../assets/menu/tartare.jpg'
+import tagliereMarcheto from '../assets/menu/tagliere-marcheto.webp'
+import tartareManzo from '../assets/menu/tartare-manzo.webp'
 
 const menuCategories = {
   antipasti: [
-    { name: 'Tagliere Marcheto', description: 'Affettati misti, salame di cervo, tegolino caldo di polenta con formaggio.', price: '15.00', image: tagliata, badge: 'New', tag: 'Da provare' },
+    { name: 'Tagliere Marcheto', description: 'Affettati misti, salame di cervo, tegolino caldo di polenta con formaggio.', price: '15.00', image: tagliereMarcheto, badge: 'New', tag: 'Da provare' },
     { name: 'Slinzega', description: 'Produzione propria con grana e olio e limone.', price: '12.00', image: tartare },
     { name: 'Tagliere Camuno', description: 'Affettati misti, formaggi misti camuni, sottaceti della casa.', price: '18.00', image: tagliata },
     { name: 'Carne Salata', description: 'Con cipolle.', price: '16.00', image: tartare, badge: 'Hot', tag: 'Chef love' },
     { name: 'Carpaccio', description: 'Con scaglie di grana.', price: '18.00', image: costata },
-    { name: 'Tartare', description: 'Di manzo o di cavallo.', price: '20.00', image: tartare, badge: 'Hot', tag: 'Chef love' },
+    { name: 'Tartare', description: 'Di manzo o di cavallo.', price: '20.00', image: tartareManzo, badge: 'Hot', tag: 'Chef love' },
   ],
   contorni: [
     { name: 'Patate al Forno', description: 'Patate croccanti cotte al forno con rosmarino.', price: '5.00', image: picanha },
@@ -82,6 +84,14 @@ const categoryLabels = {
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState('antipasti')
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0)
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header - semi-trasparente sopra l'hero */}
@@ -103,7 +113,7 @@ export default function MenuPage() {
               Home
             </Link>
             <Link to="/">
-              <img src={logo} alt="Marcheto" className="h-8 md:h-10" />
+              <img src={logo} alt="Marcheto" title="Logo Marcheto" loading="eager" width={40} height={40} className="h-8 md:h-10" />
             </Link>
             <Link to="/menu" className="text-white text-xs md:text-sm uppercase tracking-widest font-medium">
               Menu
@@ -129,7 +139,11 @@ export default function MenuPage() {
         {/* Immagine di sfondo che include il bordo grunge e le decorazioni */}
         <img
           src={menuHeroBg}
-          alt=""
+          alt="Menu Marcheto"
+          title="Il nostro menù - Marcheto"
+          loading="eager"
+          width={1920}
+          height={600}
           className="w-full h-auto"
         />
 
@@ -160,8 +174,12 @@ export default function MenuPage() {
             {/* Immagine a sinistra */}
             <div className="flex-1 max-w-lg">
               <img
-                src={tagliata}
-                alt="Carne alla griglia"
+                src={tagliereMarcheto}
+                alt="Tagliere Marcheto con affettati misti"
+                title="Tagliere Marcheto"
+                loading="lazy"
+                width={512}
+                height={384}
                 className="w-full rounded-lg shadow-2xl"
               />
             </div>
@@ -214,7 +232,7 @@ export default function MenuPage() {
       <section className="w-full bg-white py-16 md:py-24 relative">
         {/* Rosmarino decorativo a sinistra */}
         <div className="absolute left-0 top-1/4 w-32 md:w-48 pointer-events-none">
-          <img src={rosemarine} alt="" className="w-full h-auto" />
+          <img src={rosemarine} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={192} height={240} className="w-full h-auto" />
         </div>
 
         <div className="max-w-6xl mx-auto px-4 md:px-8">
@@ -264,6 +282,10 @@ export default function MenuPage() {
                     <img
                       src={item.image}
                       alt={item.name}
+                      title={`${item.name} - Marcheto`}
+                      loading="lazy"
+                      width={96}
+                      height={96}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -336,7 +358,7 @@ export default function MenuPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
             {/* Logo */}
             <div className="flex justify-center md:justify-start">
-              <img src={logo} alt="Marcheto" className="h-16" />
+              <img src={logo} alt="Marcheto" title="Logo Marcheto" loading="lazy" width={128} height={64} className="h-16" />
             </div>
 
             {/* Vieni a trovarci */}
@@ -397,9 +419,11 @@ export default function MenuPage() {
           {/* Bottom: Link e Copyright */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Link navigazione */}
-            <div className="flex gap-6 text-gray-400 text-sm">
-              <Link to="/" className="hover:text-white transition-colors">Home</Link>
-              <Link to="/menu" className="hover:text-white transition-colors">Menu</Link>
+            <div className="flex flex-wrap gap-6 text-gray-400 text-sm justify-center">
+              <Link to="/" onClick={scrollToTop} className="hover:text-white transition-colors">Home</Link>
+              <Link to="/menu" onClick={scrollToTop} className="hover:text-white transition-colors">Menu</Link>
+              <Link to="/privacy-policy" onClick={scrollToTop} className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="/cookie-policy" onClick={scrollToTop} className="hover:text-white transition-colors">Cookie Policy</Link>
             </div>
 
             {/* Copyright */}

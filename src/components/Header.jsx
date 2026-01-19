@@ -33,7 +33,7 @@ export default function Header() {
               Home
             </a>
             <a href="#home" className="flex-shrink-0">
-              <img src={logo} alt="Marcheto" className="h-14 md:h-18 lg:h-20 w-auto" />
+              <img src={logo} alt="Marcheto" title="Logo Marcheto - Macelleria e Griglieria" loading="eager" width={80} height={80} className="h-14 md:h-18 lg:h-20 w-auto" />
             </a>
             <a href="#menu" className="text-white hover:text-[#f5a623] transition-colors font-medium tracking-wider text-sm uppercase">
               Menu

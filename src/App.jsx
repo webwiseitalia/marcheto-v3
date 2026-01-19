@@ -9,7 +9,10 @@ import InterSection from './components/InterSection'
 import WhyChooseUs from './components/WhyChooseUs'
 import InterBanner from './components/InterBanner'
 import Footer from './components/Footer'
+import CookieBanner from './components/CookieBanner'
 import MenuPage from './pages/MenuPage'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
+import CookiePolicyPage from './pages/CookiePolicyPage'
 
 function HomePage() {
   return (
@@ -30,10 +33,15 @@ function HomePage() {
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/menu" element={<MenuPage />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+      </Routes>
+      <CookieBanner />
+    </>
   )
 }
 

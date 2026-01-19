@@ -29,7 +29,11 @@ export default function Categories() {
               <div className="w-10 h-10 md:w-14 md:h-14 mb-2 md:mb-3 transition-transform duration-300 group-hover:scale-110">
                 <img
                   src={cat.icon}
-                  alt={cat.label}
+                  alt={`Icona ${cat.label}`}
+                  title={`Categoria ${cat.label}`}
+                  loading="lazy"
+                  width={56}
+                  height={56}
                   className="w-full h-full object-contain"
                 />
               </div>

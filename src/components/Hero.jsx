@@ -33,12 +33,12 @@ export default function Hero() {
       />
       {/* Rametto rosmarino sinistra */}
       <div className="absolute left-0 top-[20%] w-44 md:w-64 lg:w-80 -translate-x-1/3 z-10 pointer-events-none">
-        <img src={rosemarine} alt="" className="w-full h-auto" />
+        <img src={rosemarine} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={320} height={400} className="w-full h-auto" />
       </div>
 
       {/* Rametto rosmarino destra */}
       <div className="absolute right-0 top-[20%] w-44 md:w-64 lg:w-80 translate-x-1/3 z-10 pointer-events-none">
-        <img src={rosemarine2} alt="" className="w-full h-auto" />
+        <img src={rosemarine2} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={320} height={400} className="w-full h-auto" />
       </div>
 
       {/* Badge TODAY OFFER - posizionato più in basso vicino al piatto */}
@@ -46,9 +46,9 @@ export default function Hero() {
         className="absolute right-[2%] md:right-[6%] lg:right-[10%] top-[38%] md:top-[40%] w-44 md:w-64 lg:w-80 z-30"
       >
         <div className="relative">
-          <img src={badgeBg} alt="" className="w-full h-auto" />
+          <img src={badgeBg} alt="Badge offerta" title="Badge offerta del giorno" loading="lazy" width={320} height={320} className="w-full h-auto" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <img src={todayOffer} alt="Today Offer" className="w-[55%] h-auto" />
+            <img src={todayOffer} alt="Offerta del giorno" title="Offerta speciale Marcheto" loading="lazy" width={176} height={176} className="w-[55%] h-auto" />
           </div>
         </div>
       </div>
@@ -57,12 +57,12 @@ export default function Hero() {
       <div className="relative z-20 text-center px-4 flex flex-col items-center pt-28 md:pt-36 lg:pt-40">
         {/* Original - scritta elegante */}
         <div className="mb-0">
-          <img src={originalText} alt="Original" className="w-[280px] md:w-[450px] lg:w-[600px] h-auto mx-auto" />
+          <img src={originalText} alt="Original" title="Original Italian" loading="eager" width={600} height={150} className="w-[280px] md:w-[450px] lg:w-[600px] h-auto mx-auto" />
         </div>
 
         {/* ITALIAN - ENORME, appena sotto Original */}
         <div className="relative z-10 -mt-16 md:-mt-28 lg:-mt-40">
-          <img src={italianText} alt="Italian" className="w-[85vw] md:w-[80vw] lg:w-[75vw] max-w-[1100px] h-auto mx-auto" />
+          <img src={italianText} alt="Italian" title="Italian Meat" loading="eager" width={1100} height={300} className="w-[85vw] md:w-[80vw] lg:w-[75vw] max-w-[1100px] h-auto mx-auto" />
         </div>
       </div>
 
@@ -75,7 +75,7 @@ export default function Hero() {
         }}
       >
         <div className="w-full">
-          <img src={steak} alt="Bistecca" className="w-full h-auto" />
+          <img src={steak} alt="Piatto di bistecca alla brace" title="Bistecca Marcheto" loading="eager" width={1450} height={1450} className="w-full h-auto" />
         </div>
       </div>
 

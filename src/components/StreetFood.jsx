@@ -8,12 +8,12 @@ export default function StreetFood() {
     <section className="w-full bg-white py-20 md:py-28 pb-32 md:pb-40 relative overflow-visible">
       {/* Rametto rosmarino in alto a sinistra */}
       <div className="absolute top-0 left-0 w-32 md:w-48 -translate-x-1/3 -translate-y-1/4 pointer-events-none">
-        <img src={rosemarine} alt="" className="w-full h-auto" />
+        <img src={rosemarine} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={192} height={240} className="w-full h-auto" />
       </div>
 
       {/* Rametto rosmarino in basso a destra */}
       <div className="absolute bottom-0 right-0 w-32 md:w-48 translate-x-1/3 translate-y-1/4 pointer-events-none">
-        <img src={rosemarine2} alt="" className="w-full h-auto" />
+        <img src={rosemarine2} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={192} height={240} className="w-full h-auto" />
       </div>
 
       {/* Pallini decorativi gialli e rossi */}
@@ -29,7 +29,11 @@ export default function StreetFood() {
           <div className="flex-1 flex justify-center">
             <img
               src={burger}
-              alt="Street Food Burger"
+              alt="Hamburger gourmet Marcheto"
+              title="Street Food Burger Marcheto"
+              loading="lazy"
+              width={450}
+              height={500}
               className="w-72 md:w-96 lg:w-[450px] h-auto"
             />
           </div>

@@ -92,6 +92,10 @@ export default function MenuProducts() {
                   <img
                     src={product.image}
                     alt={product.name}
+                    title={`${product.name} - Marcheto`}
+                    loading="lazy"
+                    width={128}
+                    height={128}
                     className="w-full h-full object-cover"
                   />
                 </div>

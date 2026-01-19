@@ -1,0 +1,12 @@
+# Robots.txt for Marcheto
+# https://marcheto.it
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://marcheto.it/sitemap.xml
+
+# Disallow admin and private paths (if any)
+Disallow: /admin/
+Disallow: /private/
