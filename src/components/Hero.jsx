@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import steak from '../assets/images/steak.webp'
 import bgImage from '../assets/images/bg-image.webp'
@@ -186,7 +187,7 @@ export default function Hero() {
         </svg>
       </div>
 
-      {/* Pulsante CHIAMA - PIÙ IN ALTO su mobile */}
+      {/* Pulsante MENÙ - PIÙ IN ALTO su mobile */}
       <div
         ref={callButtonRef}
         className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center bottom-[720px] md:bottom-[300px] hero-call-button"
@@ -201,16 +202,16 @@ export default function Hero() {
           </svg>
         </div>
 
-        {/* Cerchio CHIAMA */}
-        <a
-          href="tel:+390364657048"
+        {/* Cerchio MENÙ */}
+        <Link
+          to="/menu"
           className="group flex items-center justify-center w-32 h-32 md:w-48 md:h-48 rounded-full bg-white shadow-2xl hover:shadow-3xl transition-shadow"
           style={{
             border: '6px solid #f5a623'
           }}
         >
           <span
-            className="text-gray-900 uppercase -mt-5"
+            className="text-gray-900 uppercase mt-0 md:-mt-5"
             style={{
               fontFamily: 'Antonio, sans-serif',
               fontSize: 'clamp(28px, 5vw, 38px)',
@@ -218,8 +219,8 @@ export default function Hero() {
               WebkitFontSmoothing: 'antialiased',
               letterSpacing: '-2px'
             }}
-          >CHIAMA</span>
-        </a>
+          >MENÙ</span>
+        </Link>
       </div>
     </section>
   )

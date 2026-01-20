@@ -89,13 +89,13 @@ export default function StreetFood() {
 
   return (
     <section ref={sectionRef} className="w-full bg-white py-20 md:py-28 pb-32 md:pb-40 relative overflow-visible">
-      {/* Rametto rosmarino in alto a sinistra */}
-      <div className="absolute top-0 left-0 w-32 md:w-48 -translate-x-1/3 -translate-y-1/4 pointer-events-none">
+      {/* Rametto rosmarino in alto a sinistra - nascosto su mobile */}
+      <div className="hidden md:block absolute top-0 left-0 w-32 md:w-48 -translate-x-1/3 -translate-y-1/4 pointer-events-none">
         <img src={rosemarine} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={192} height={240} className="w-full h-auto" />
       </div>
 
-      {/* Rametto rosmarino in basso a destra */}
-      <div className="absolute bottom-0 right-0 w-32 md:w-48 translate-x-1/3 translate-y-1/4 pointer-events-none">
+      {/* Rametto rosmarino in basso a destra - nascosto su mobile */}
+      <div className="hidden md:block absolute bottom-0 right-0 w-32 md:w-48 translate-x-1/3 translate-y-1/4 pointer-events-none">
         <img src={rosemarine2} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={192} height={240} className="w-full h-auto" />
       </div>
 

@@ -68,6 +68,30 @@ export default function Header({ transparent = false }) {
             <img src={logo} alt="Marcheto" title="Logo Marcheto" loading="eager" width={80} height={80} className="h-10 w-auto" />
           </Link>
 
+          {/* Chiama Ora + Burger - Mobile */}
+          <div className="md:hidden flex items-center gap-3">
+            <a
+              href="tel:+390364657048"
+              className="flex items-center gap-2 bg-[#f5a623] text-[#230500] px-4 py-2 rounded-full font-semibold text-xs uppercase tracking-wide"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              Chiama
+            </a>
+
+            {/* Burger Menu Button - Mobile */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="w-10 h-10 flex flex-col items-center justify-center gap-1.5 text-white relative z-50"
+              aria-label={menuOpen ? 'Chiudi menu' : 'Apri menu'}
+            >
+              <span className={`block w-6 h-0.5 bg-white transition-all duration-300 origin-center ${menuOpen ? 'rotate-45 translate-y-[8px]' : ''}`} />
+              <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'opacity-0 scale-0' : ''}`} />
+              <span className={`block w-6 h-0.5 bg-white transition-all duration-300 origin-center ${menuOpen ? '-rotate-45 -translate-y-[8px]' : ''}`} />
+            </button>
+          </div>
+
           {/* Navigation - Desktop */}
           <nav className="hidden md:flex items-center gap-8 md:gap-12">
             <Link to="/" className="text-white hover:text-[#f5a623] transition-colors font-medium tracking-wider text-sm uppercase">
@@ -96,16 +120,6 @@ export default function Header({ transparent = false }) {
             </a>
           </div>
 
-          {/* Burger Menu Button - Mobile */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 text-white relative z-50"
-            aria-label={menuOpen ? 'Chiudi menu' : 'Apri menu'}
-          >
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 origin-center ${menuOpen ? 'rotate-45 translate-y-[8px]' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'opacity-0 scale-0' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 origin-center ${menuOpen ? '-rotate-45 -translate-y-[8px]' : ''}`} />
-          </button>
         </div>
       </div>
 
