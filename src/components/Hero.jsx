@@ -48,7 +48,7 @@ export default function Hero() {
         <div className="relative">
           <img src={badgeBg} alt="Badge offerta" title="Badge offerta del giorno" loading="lazy" width={320} height={320} className="w-full h-auto" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <img src={todayOffer} alt="Offerta del giorno" title="Offerta speciale Marcheto" loading="lazy" width={176} height={176} className="w-[55%] h-auto" />
+            <img src={todayOffer} alt="Offerta del giorno" title="Offerta speciale Marcheto" loading="lazy" width={157} height={157} className="w-[157px] h-auto" />
           </div>
         </div>
       </div>
@@ -93,11 +93,11 @@ export default function Hero() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-full"
-          style={{ height: '700px' }}
+          style={{ height: '500px' }}
           preserveAspectRatio="none"
         >
           <path
-            d="M0 0 Q720 600 1440 0 L1440 700 L0 700 Z"
+            d="M0 0 Q720 300 1440 0 L1440 700 L0 700 Z"
             fill="white"
           />
         </svg>
@@ -127,7 +127,7 @@ export default function Hero() {
           }}
         >
           <span
-            className="text-gray-900 uppercase -mt-1"
+            className="text-gray-900 uppercase -mt-5"
             style={{
               fontFamily: 'Antonio, sans-serif',
               fontSize: '38px',

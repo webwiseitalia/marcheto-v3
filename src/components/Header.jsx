@@ -1,15 +1,16 @@
+import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo_marcheto.png'
 
-export default function Header() {
+export default function Header({ transparent = false }) {
 
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50"
     >
-      {/* Navbar principale - full width, sfondo bordeaux scuro */}
+      {/* Navbar principale - full width */}
       <div
         className="w-full px-6 md:px-12 lg:px-20 h-[100px] flex items-center"
-        style={{ backgroundColor: '#230500' }}
+        style={{ backgroundColor: transparent ? 'transparent' : '#230500' }}
       >
         <div className="w-full flex items-center justify-between">
           {/* Phone */}
@@ -29,15 +30,15 @@ export default function Header() {
 
           {/* Navigation */}
           <nav className="flex items-center gap-8 md:gap-12">
-            <a href="#home" className="text-white hover:text-[#f5a623] transition-colors font-medium tracking-wider text-sm uppercase">
+            <Link to="/" className="text-white hover:text-[#f5a623] transition-colors font-medium tracking-wider text-sm uppercase">
               Home
-            </a>
-            <a href="#home" className="flex-shrink-0">
+            </Link>
+            <Link to="/" className="flex-shrink-0">
               <img src={logo} alt="Marcheto" title="Logo Marcheto - Macelleria e Griglieria" loading="eager" width={80} height={80} className="h-10 md:h-12 lg:h-14 w-auto" />
-            </a>
-            <a href="#menu" className="text-white hover:text-[#f5a623] transition-colors font-medium tracking-wider text-sm uppercase">
+            </Link>
+            <Link to="/menu" className="text-white hover:text-[#f5a623] transition-colors font-medium tracking-wider text-sm uppercase">
               Menu
-            </a>
+            </Link>
           </nav>
 
           {/* CTA */}
