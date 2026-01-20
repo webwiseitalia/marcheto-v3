@@ -52,7 +52,7 @@ export default function Categories() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white -mt-[700px] md:-mt-56 lg:-mt-64" style={{ zIndex: 15 }}>
+    <section ref={sectionRef} className="relative w-full bg-white -mt-[700px] md:-mt-56 lg:-mt-64 categories-section" style={{ zIndex: 15 }}>
       {/* Contenuto categorie */}
       <div className="w-full max-w-6xl mx-auto px-4 md:px-8 pt-16 md:pt-20 pb-16 md:pb-20">
         <div className="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-4">

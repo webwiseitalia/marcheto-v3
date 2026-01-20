@@ -163,7 +163,7 @@ export default function Hero() {
           viewBox="0 0 1440 700"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-[850px] md:hidden"
+          className="w-full h-[850px] md:hidden hero-curve-mobile"
           preserveAspectRatio="none"
         >
           <path
@@ -189,7 +189,7 @@ export default function Hero() {
       {/* Pulsante CHIAMA - PIÙ IN ALTO su mobile */}
       <div
         ref={callButtonRef}
-        className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center bottom-[720px] md:bottom-[300px]"
+        className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center bottom-[720px] md:bottom-[300px] hero-call-button"
         style={{
           zIndex: 20
         }}

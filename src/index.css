@@ -61,3 +61,40 @@ body {
 .animate-spin-slow {
   animation: spin-slow 90s linear infinite;
 }
+
+/* Hero mobile - schermi con altezza ridotta (smartphone piccoli, 9:16, ecc.) */
+@media (max-width: 767px) and (max-height: 750px) {
+  .hero-call-button {
+    bottom: 550px !important;
+  }
+  .hero-curve-mobile {
+    height: 680px !important;
+  }
+  .categories-section {
+    margin-top: -550px !important;
+  }
+}
+
+@media (max-width: 767px) and (max-height: 650px) {
+  .hero-call-button {
+    bottom: 450px !important;
+  }
+  .hero-curve-mobile {
+    height: 580px !important;
+  }
+  .categories-section {
+    margin-top: -450px !important;
+  }
+}
+
+@media (max-width: 767px) and (max-height: 550px) {
+  .hero-call-button {
+    bottom: 350px !important;
+  }
+  .hero-curve-mobile {
+    height: 480px !important;
+  }
+  .categories-section {
+    margin-top: -350px !important;
+  }
+}
