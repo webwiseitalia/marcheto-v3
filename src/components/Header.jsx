@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import logo from '../assets/images/logo_marcheto.webp'
 
 export default function Header({ transparent = false }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -134,14 +135,22 @@ export default function Header({ transparent = false }) {
           <Link
             to="/"
             onClick={() => setMenuOpen(false)}
-            className="text-white text-3xl font-bold uppercase tracking-wider hover:text-[#f5a623] transition-colors"
+            className={`text-3xl font-bold uppercase tracking-wider transition-colors text-white hover:text-[#f5a623] pb-2 border-b-2 ${
+              location.pathname === '/'
+                ? 'border-[#f5a623]'
+                : 'border-transparent'
+            }`}
           >
             Home
           </Link>
           <Link
             to="/menu"
             onClick={() => setMenuOpen(false)}
-            className="text-white text-3xl font-bold uppercase tracking-wider hover:text-[#f5a623] transition-colors"
+            className={`text-3xl font-bold uppercase tracking-wider transition-colors text-white hover:text-[#f5a623] pb-2 border-b-2 ${
+              location.pathname === '/menu'
+                ? 'border-[#f5a623]'
+                : 'border-transparent'
+            }`}
           >
             Menu
           </Link>
