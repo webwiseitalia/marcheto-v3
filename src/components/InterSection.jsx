@@ -163,12 +163,6 @@ export default function InterSection() {
           </div>
         </div>
 
-        {/* Decorazione inferiore */}
-        <div className="flex items-center justify-center gap-4 mt-12 md:mt-16">
-          <div className="w-2 h-2 rounded-full bg-[#c41e3a]/30" />
-          <div className="w-3 h-3 rounded-full bg-[#c41e3a]/50" />
-          <div className="w-2 h-2 rounded-full bg-[#c41e3a]/30" />
-        </div>
       </div>
     </section>
   )
