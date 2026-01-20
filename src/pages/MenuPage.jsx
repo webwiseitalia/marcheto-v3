@@ -5,56 +5,47 @@ import logo from '../assets/images/logo_marcheto.png'
 import rosemarine from '../assets/images/rosemarine.png'
 import rosemarine2 from '../assets/images/rosemarine-2.png'
 import menuHeroBg from '../assets/images/menu-hero-bg.webp'
-
-// Immagini menu
-import fiorentina from '../assets/menu/fiorentina.jpg'
-import costata from '../assets/menu/costata.jpg'
-import tagliata from '../assets/menu/tagliata.jpg'
-import picanha from '../assets/menu/picanha.jpg'
-import asado from '../assets/menu/asado-argentino.jpg'
-import tartare from '../assets/menu/tartare.jpg'
 import tagliereMarcheto from '../assets/menu/tagliere-marcheto.webp'
-import tartareManzo from '../assets/menu/tartare-manzo.webp'
 
 const menuCategories = {
   antipasti: [
-    { name: 'Tagliere Marcheto', description: 'Affettati misti, salame di cervo, tegole calde di polenta con formaggio.', price: '18', image: tagliereMarcheto, badge: 'New', tag: 'Da provare' },
-    { name: 'Tagliere Camuno', description: 'Affettati misti, formaggi misti camuni, sottoli della casa.', price: '18', image: tagliata },
-    { name: 'Carpaccio', description: 'Con scaglie di grana.', price: '18', image: costata },
-    { name: 'Slinzega', description: 'Produzione propria con grana o limone.', price: '18', image: tartare },
-    { name: 'Carne Salata', description: 'Con cipolle.', price: '18', image: tartare, tag: 'Chef love' },
-    { name: 'Tartare', description: 'Di manzo o cavallo.', price: '22', image: tartareManzo, badge: 'Hot', tag: 'Chef love' },
+    { name: 'Tagliere Marcheto', description: 'Affettati misti, salame di cervo, tegole calde di polenta con formaggio.', price: '18', badge: 'New', tag: 'Da provare' },
+    { name: 'Tagliere Camuno', description: 'Affettati misti, formaggi misti camuni, sottoli della casa.', price: '18' },
+    { name: 'Carpaccio', description: 'Con scaglie di grana.', price: '18' },
+    { name: 'Slinzega', description: 'Produzione propria con grana o limone.', price: '18' },
+    { name: 'Carne Salata', description: 'Con cipolle.', price: '18', tag: 'Chef love' },
+    { name: 'Tartare', description: 'Di manzo o cavallo.', price: '22', badge: 'Hot', tag: 'Chef love' },
   ],
   brace: [
-    { name: 'Grigliata Mista', description: 'Controfiletto, coppa, filetto, braciola affumicata.', price: '4,50/etto', image: fiorentina, badge: 'Hot', tag: 'Da provare' },
-    { name: 'Fiorentina', description: 'Peso a vostra discrezione.', price: 'al peso', image: fiorentina, badge: 'Hot' },
-    { name: 'Costata', description: 'Scamorza o irlandese.', price: '27', image: costata },
-    { name: 'Cube Roll Argentina', description: 'Taglio pregiato argentino.', price: '27', image: asado },
-    { name: 'Asado Argentina', description: 'Costato di manzo.', price: '21', image: asado, tag: 'Chef love' },
-    { name: 'Filetti di Manzo', description: 'Anche con funghi porcini.', price: '27', image: tagliata },
-    { name: 'Tagliata di Manzo', description: 'Classica tagliata alla brace.', price: '23', image: tagliata },
-    { name: 'Tagliata del "Gioss"', description: 'Cavallo con olio e prezzemolo.', price: '23', image: tagliata },
-    { name: 'Tagliata di Picanha', description: 'Taglio brasiliano alla brace.', price: '23', image: picanha, tag: 'Da provare' },
-    { name: 'Hamburger di Cervo', description: 'Carne di cervo selezionata.', price: '20', image: asado, badge: 'New' },
-    { name: 'Cosce di Pollo Disossate', description: 'Agli aromi.', price: '22', image: asado },
-    { name: 'Costine alla Marcheto', description: 'La nostra specialità.', price: '22', image: asado, badge: 'Hot', tag: 'Chef love' },
+    { name: 'Grigliata Mista', description: 'Controfiletto, coppa, filetto, braciola affumicata.', price: '4,50/etto', badge: 'Hot', tag: 'Da provare' },
+    { name: 'Fiorentina', description: 'Peso a vostra discrezione.', price: 'al peso', badge: 'Hot' },
+    { name: 'Costata', description: 'Scamorza o irlandese.', price: '27' },
+    { name: 'Cube Roll Argentina', description: 'Taglio pregiato argentino.', price: '27' },
+    { name: 'Asado Argentina', description: 'Costato di manzo.', price: '21', tag: 'Chef love' },
+    { name: 'Filetti di Manzo', description: 'Anche con funghi porcini.', price: '27' },
+    { name: 'Tagliata di Manzo', description: 'Classica tagliata alla brace.', price: '23' },
+    { name: 'Tagliata del "Giost"', description: 'Cavallo con olio e prezzemolo.', price: '23' },
+    { name: 'Tagliata di Picanha', description: 'Taglio brasiliano alla brace.', price: '23', tag: 'Da provare' },
+    { name: 'Hamburger di Cervo', description: 'Carne di cervo selezionata.', price: '20', badge: 'New' },
+    { name: 'Cosce di Pollo Disossate', description: 'Agli aromi.', price: '22' },
+    { name: 'Costine alla Marcheto', description: 'La nostra specialità.', price: '22', badge: 'Hot', tag: 'Chef love' },
   ],
   contorni: [
-    { name: 'Patatine Fritte', description: 'Croccanti e dorate.', price: '3,50', image: picanha },
-    { name: 'Insalata Verde o Mista', description: 'Fresca di stagione.', price: '3,50', image: picanha },
-    { name: 'Pomodori', description: 'Freschi.', price: '3,50', image: picanha },
-    { name: 'Cipolle Grigliate', description: 'Grigliate e caramellate.', price: '5', image: picanha, tag: 'Da provare' },
-    { name: 'Peperonata', description: 'Peperoni in padella.', price: '5', image: picanha },
-    { name: 'Cavolo Rosso', description: 'Contorno della tradizione.', price: '5', image: picanha },
-    { name: 'Puntarelle di Cicoria', description: 'Verdura fresca.', price: '5', image: picanha },
-    { name: 'Carciofi', description: 'Di stagione.', price: '5', image: picanha },
-    { name: 'Giardiniera della Casa', description: 'Produzione propria.', price: '5', image: picanha, tag: 'Chef love' },
-    { name: 'Porri Grigliati', description: 'Alla brace.', price: '5', image: picanha },
+    { name: 'Patatine Fritte', description: 'Croccanti e dorate.', price: '3,50' },
+    { name: 'Insalata Verde o Mista', description: 'Fresca di stagione.', price: '3,50' },
+    { name: 'Pomodori', description: 'Freschi.', price: '3,50' },
+    { name: 'Cipolle Grigliate', description: 'Grigliate e caramellate.', price: '5', tag: 'Da provare' },
+    { name: 'Peperonata', description: 'Peperoni in padella.', price: '5' },
+    { name: 'Cavolo Rosso', description: 'Contorno della tradizione.', price: '5' },
+    { name: 'Puntarelle di Cicoria', description: 'Verdura fresca.', price: '5' },
+    { name: 'Carciofi', description: 'Di stagione.', price: '5' },
+    { name: 'Giardiniera della Casa', description: 'Produzione propria.', price: '5', tag: 'Chef love' },
+    { name: 'Porri Grigliati', description: 'Alla brace.', price: '5' },
   ],
   bimbi: [
-    { name: 'Menu Bimbi - Cotoletta', description: 'Cotoletta con patatine fritte.', price: '12', image: asado },
-    { name: 'Menu Bimbi - Würstel', description: 'Würstel con patatine fritte.', price: '12', image: asado },
-    { name: 'Menu Bimbi - Hamburger', description: 'Hamburger con patatine fritte.', price: '12', image: asado },
+    { name: 'Menu Bimbi - Cotoletta', description: 'Cotoletta con patatine fritte.', price: '12' },
+    { name: 'Menu Bimbi - Würstel', description: 'Würstel con patatine fritte.', price: '12' },
+    { name: 'Menu Bimbi - Hamburger', description: 'Hamburger con patatine fritte.', price: '12' },
   ],
 }
 
@@ -249,63 +240,59 @@ export default function MenuPage() {
           </div>
 
           {/* Menu Items Grid - 2 colonne */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-1">
             {menuCategories[activeCategory].map((item, index) => (
               <div
                 key={index}
-                className="flex items-center gap-4 py-4 border-b border-dashed border-gray-300"
+                className="py-4 group"
               >
-                {/* Immagine circolare */}
-                <div className="relative flex-shrink-0">
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shadow-lg">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      title={`${item.name} - Marcheto`}
-                      loading="lazy"
-                      width={96}
-                      height={96}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  {/* Badge NEW/HOT */}
+                {/* Riga principale: Nome + linea punteggiata + Prezzo */}
+                <div className="flex items-baseline gap-2">
+                  {/* Nome piatto */}
+                  <h3 className="text-gray-900 font-bold text-base md:text-lg uppercase tracking-wide flex-shrink-0">
+                    {item.name}
+                  </h3>
+
+                  {/* Badge NEW/HOT inline */}
                   {item.badge && (
-                    <span className={`absolute -top-1 -left-1 px-2 py-0.5 rounded-full text-[10px] font-bold text-white uppercase ${
+                    <span className={`flex-shrink-0 px-2 py-0.5 rounded-full text-[10px] font-bold text-white uppercase ${
                       item.badge === 'New' ? 'bg-green-500' : 'bg-red-500'
                     }`}>
                       {item.badge}
                     </span>
                   )}
-                </div>
 
-                {/* Info */}
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h3 className="text-gray-900 font-bold text-base uppercase">{item.name}</h3>
-                    {/* Tag Da provare / Chef love */}
-                    {item.tag && (
-                      <span className="flex items-center gap-1 px-2 py-0.5 rounded-full border border-gray-300 text-[10px] text-gray-500 uppercase">
-                        {item.tag === 'Chef love' && (
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                          </svg>
-                        )}
-                        {item.tag === 'Da provare' && (
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
-                          </svg>
-                        )}
-                        {item.tag}
-                      </span>
-                    )}
+                  {/* Linea punteggiata che si espande */}
+                  <div className="flex-1 border-b-2 border-dotted border-gray-300 mx-2 mb-1" />
+
+                  {/* Prezzo */}
+                  <div className="flex-shrink-0">
+                    <span className="text-[#c41e3a] font-bold text-lg md:text-xl">
+                      {item.price.includes('peso') || item.price.includes('etto') ? item.price : `€${item.price}`}
+                    </span>
                   </div>
-                  <p className="text-gray-500 text-sm">{item.description}</p>
                 </div>
 
-                {/* Prezzo */}
-                <div className="flex-shrink-0 text-right">
-                  <span className="text-gray-400 text-xs align-top">€</span>
-                  <span className="text-gray-900 font-bold text-xl">{item.price}</span>
+                {/* Riga secondaria: Descrizione + Tag */}
+                <div className="flex items-center gap-3 mt-1">
+                  <p className="text-gray-500 text-sm italic">{item.description}</p>
+
+                  {/* Tag Da provare / Chef love */}
+                  {item.tag && (
+                    <span className="flex-shrink-0 flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100 text-[10px] text-gray-600 uppercase">
+                      {item.tag === 'Chef love' && (
+                        <svg className="w-3 h-3 text-red-400" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                      )}
+                      {item.tag === 'Da provare' && (
+                        <svg className="w-3 h-3 text-amber-500" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                      )}
+                      {item.tag}
+                    </span>
+                  )}
                 </div>
               </div>
             ))}
