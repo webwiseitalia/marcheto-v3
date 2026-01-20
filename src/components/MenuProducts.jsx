@@ -8,54 +8,54 @@ import tartare from '../assets/menu/tartare.jpg'
 const products = [
   {
     image: asado,
-    name: 'Asado Argentino',
-    description: 'Carni selezionate cotte lentamente sulla brace, per un sapore autentico e irresistibile.',
-    price: '€20.00',
-    badge: 'NEW',
-    badgeColor: 'bg-green-500',
-    tag: 'DA PROVARE'
+    name: 'Asado Argentina',
+    description: 'Costato di manzo cotto lentamente sulla brace, per un sapore autentico e irresistibile.',
+    price: '€21',
+    badge: null,
+    badgeColor: null,
+    tag: 'CHEF LOVE'
   },
   {
     image: costata,
     name: 'Costata',
-    description: 'Una succulenta carne cotta alla perfezione sulla brace, per un gusto intenso e raffinato.',
-    price: '€25.00',
+    description: 'Scamorza o irlandese, cotta alla perfezione sulla brace per un gusto intenso e raffinato.',
+    price: '€27',
     badge: null,
     tag: null
   },
   {
     image: fiorentina,
     name: 'Fiorentina',
-    description: 'Bistecca spessa, tipica della tradizione toscana, ottenuta da un taglio di carne bovina, solitamente il filetto, cotta alla brace.',
-    price: '€4.00\\hg',
+    description: 'Bistecca spessa, tipica della tradizione toscana, peso a vostra discrezione.',
+    price: 'al peso',
     badge: 'HOT',
     badgeColor: 'bg-red-500',
     tag: null
   },
   {
     image: picanha,
-    name: 'Picanha',
-    description: 'La Picanha è un taglio di carne brasiliano, caratterizzato da una crosta di grasso che la rende succulenta e saporita.',
-    price: '€20.00',
+    name: 'Tagliata di Picanha',
+    description: 'Taglio brasiliano alla brace, caratterizzato da una crosta di grasso che la rende succulenta e saporita.',
+    price: '€23',
     badge: null,
-    tag: null
+    tag: 'DA PROVARE'
   },
   {
     image: tagliata,
     name: 'Tagliata di Manzo',
-    description: 'La tagliata è un piatto di carne, bovina, grigliata e tagliata a fette sottili.',
-    price: '€20.00',
+    description: 'Classica tagliata alla brace, grigliata e tagliata a fette sottili.',
+    price: '€23',
     badge: 'HOT',
     badgeColor: 'bg-red-500',
     tag: 'LA CLASSICA'
   },
   {
     image: tartare,
-    name: 'Tartare Manzo\\Cavallo',
-    description: 'La tartare di manzo\\cavallo è carne cruda tritata finemente, condita con olio, limone e spezie.',
-    price: '€20.00',
+    name: 'Tartare',
+    description: 'Di manzo o cavallo, carne cruda tritata finemente, condita con olio, limone e spezie.',
+    price: '€22',
     badge: null,
-    tag: null
+    tag: 'CHEF LOVE'
   },
 ]
 

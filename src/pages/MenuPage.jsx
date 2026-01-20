@@ -18,30 +18,43 @@ import tartareManzo from '../assets/menu/tartare-manzo.webp'
 
 const menuCategories = {
   antipasti: [
-    { name: 'Tagliere Marcheto', description: 'Affettati misti, salame di cervo, tegolino caldo di polenta con formaggio.', price: '15.00', image: tagliereMarcheto, badge: 'New', tag: 'Da provare' },
-    { name: 'Slinzega', description: 'Produzione propria con grana e olio e limone.', price: '12.00', image: tartare },
-    { name: 'Tagliere Camuno', description: 'Affettati misti, formaggi misti camuni, sottaceti della casa.', price: '18.00', image: tagliata },
-    { name: 'Carne Salata', description: 'Con cipolle.', price: '16.00', image: tartare, badge: 'Hot', tag: 'Chef love' },
-    { name: 'Carpaccio', description: 'Con scaglie di grana.', price: '18.00', image: costata },
-    { name: 'Tartare', description: 'Di manzo o di cavallo.', price: '20.00', image: tartareManzo, badge: 'Hot', tag: 'Chef love' },
+    { name: 'Tagliere Marcheto', description: 'Affettati misti, salame di cervo, tegole calde di polenta con formaggio.', price: '18', image: tagliereMarcheto, badge: 'New', tag: 'Da provare' },
+    { name: 'Tagliere Camuno', description: 'Affettati misti, formaggi misti camuni, sottoli della casa.', price: '18', image: tagliata },
+    { name: 'Carpaccio', description: 'Con scaglie di grana.', price: '18', image: costata },
+    { name: 'Slinzega', description: 'Produzione propria con grana o limone.', price: '18', image: tartare },
+    { name: 'Carne Salata', description: 'Con cipolle.', price: '18', image: tartare, tag: 'Chef love' },
+    { name: 'Tartare', description: 'Di manzo o cavallo.', price: '22', image: tartareManzo, badge: 'Hot', tag: 'Chef love' },
+  ],
+  brace: [
+    { name: 'Grigliata Mista', description: 'Controfiletto, coppa, filetto, braciola affumicata.', price: '4,50/etto', image: fiorentina, badge: 'Hot', tag: 'Da provare' },
+    { name: 'Fiorentina', description: 'Peso a vostra discrezione.', price: 'al peso', image: fiorentina, badge: 'Hot' },
+    { name: 'Costata', description: 'Scamorza o irlandese.', price: '27', image: costata },
+    { name: 'Cube Roll Argentina', description: 'Taglio pregiato argentino.', price: '27', image: asado },
+    { name: 'Asado Argentina', description: 'Costato di manzo.', price: '21', image: asado, tag: 'Chef love' },
+    { name: 'Filetti di Manzo', description: 'Anche con funghi porcini.', price: '27', image: tagliata },
+    { name: 'Tagliata di Manzo', description: 'Classica tagliata alla brace.', price: '23', image: tagliata },
+    { name: 'Tagliata del "Gioss"', description: 'Cavallo con olio e prezzemolo.', price: '23', image: tagliata },
+    { name: 'Tagliata di Picanha', description: 'Taglio brasiliano alla brace.', price: '23', image: picanha, tag: 'Da provare' },
+    { name: 'Hamburger di Cervo', description: 'Carne di cervo selezionata.', price: '20', image: asado, badge: 'New' },
+    { name: 'Cosce di Pollo Disossate', description: 'Agli aromi.', price: '22', image: asado },
+    { name: 'Costine alla Marcheto', description: 'La nostra specialità.', price: '22', image: asado, badge: 'Hot', tag: 'Chef love' },
   ],
   contorni: [
-    { name: 'Patate al Forno', description: 'Patate croccanti cotte al forno con rosmarino.', price: '5.00', image: picanha },
-    { name: 'Insalata Mista', description: 'Insalata fresca di stagione.', price: '4.00', image: picanha },
-    { name: 'Verdure Grigliate', description: 'Zucchine, melanzane e peperoni alla griglia.', price: '6.00', image: picanha, tag: 'Da provare' },
-    { name: 'Fagioli alla Texana', description: 'Fagioli in salsa BBQ affumicata.', price: '5.50', image: picanha },
+    { name: 'Patatine Fritte', description: 'Croccanti e dorate.', price: '3,50', image: picanha },
+    { name: 'Insalata Verde o Mista', description: 'Fresca di stagione.', price: '3,50', image: picanha },
+    { name: 'Pomodori', description: 'Freschi.', price: '3,50', image: picanha },
+    { name: 'Cipolle Grigliate', description: 'Grigliate e caramellate.', price: '5', image: picanha, tag: 'Da provare' },
+    { name: 'Peperonata', description: 'Peperoni in padella.', price: '5', image: picanha },
+    { name: 'Cavolo Rosso', description: 'Contorno della tradizione.', price: '5', image: picanha },
+    { name: 'Puntarelle di Cicoria', description: 'Verdura fresca.', price: '5', image: picanha },
+    { name: 'Carciofi', description: 'Di stagione.', price: '5', image: picanha },
+    { name: 'Giardiniera della Casa', description: 'Produzione propria.', price: '5', image: picanha, tag: 'Chef love' },
+    { name: 'Porri Grigliati', description: 'Alla brace.', price: '5', image: picanha },
   ],
-  panini: [
-    { name: 'Panino Marcheto', description: 'Pulled pork, coleslaw, salsa BBQ.', price: '12.00', image: asado, badge: 'Hot' },
-    { name: 'Burger Classico', description: 'Macinato di manzo, cheddar, bacon, salsa speciale.', price: '14.00', image: asado, tag: 'Da provare' },
-    { name: 'Burger Gourmet', description: 'Angus, brie, cipolla caramellata, rucola.', price: '16.00', image: asado },
-    { name: 'Hot Dog Americano', description: 'Wurstel di manzo, senape, ketchup, cipolla croccante.', price: '8.00', image: asado },
-  ],
-  drinks: [
-    { name: 'Coca Cola', description: 'Lattina 33cl.', price: '3.00', image: picanha },
-    { name: 'Birra Artigianale', description: 'Selezione di birre locali alla spina.', price: '5.00', image: picanha, badge: 'New' },
-    { name: 'Vino Rosso della Casa', description: 'Calice di vino rosso selezionato.', price: '4.00', image: picanha },
-    { name: 'Acqua Minerale', description: 'Naturale o frizzante 75cl.', price: '2.50', image: picanha },
+  bimbi: [
+    { name: 'Menu Bimbi - Cotoletta', description: 'Cotoletta con patatine fritte.', price: '12', image: asado },
+    { name: 'Menu Bimbi - Würstel', description: 'Würstel con patatine fritte.', price: '12', image: asado },
+    { name: 'Menu Bimbi - Hamburger', description: 'Hamburger con patatine fritte.', price: '12', image: asado },
   ],
 }
 
@@ -54,32 +67,34 @@ const categoryIcons = {
       <path d="M5 14v3c0 2 3 4 7 4s7-2 7-4v-3" />
     </svg>
   ),
+  brace: (
+    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M12 2c0 3-2 5-2 8s2 5 2 5" />
+      <path d="M8 4c0 2-1.5 3.5-1.5 6s1.5 4 1.5 4" />
+      <path d="M16 4c0 2 1.5 3.5 1.5 6s-1.5 4-1.5 4" />
+      <rect x="4" y="16" width="16" height="4" rx="1" />
+      <path d="M6 20v2M18 20v2" />
+    </svg>
+  ),
   contorni: (
     <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M6 6l3 3M6 6l-3 3M18 6l-3 3M18 6l3 3" />
       <circle cx="12" cy="14" r="6" />
     </svg>
   ),
-  panini: (
+  bimbi: (
     <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M4 12h16M4 12c0-3 4-6 8-6s8 3 8 6M4 12v2c0 2 4 4 8 4s8-2 8-4v-2" />
-      <path d="M8 12v4M12 12v4M16 12v4" />
-    </svg>
-  ),
-  drinks: (
-    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M8 2h8l-1 10H9L8 2z" />
-      <path d="M9 12h6v2c0 3-1.5 6-3 6s-3-3-3-6v-2z" />
-      <path d="M10 20h4" />
+      <circle cx="12" cy="8" r="4" />
+      <path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
     </svg>
   ),
 }
 
 const categoryLabels = {
   antipasti: 'Antipasti',
+  brace: 'Specialità Brace',
   contorni: 'Contorni',
-  panini: 'Panini',
-  drinks: 'Drinks',
+  bimbi: 'Menu Bimbi',
 }
 
 export default function MenuPage() {
@@ -294,6 +309,20 @@ export default function MenuPage() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Nota per Specialità Brace */}
+          {activeCategory === 'brace' && (
+            <p className="text-center text-gray-500 text-sm italic mt-8">
+              + tutto quello esposto nel banco macelleria e nella vetrina di frollatura
+            </p>
+          )}
+
+          {/* Coperto */}
+          <div className="mt-12 pt-8 border-t border-gray-200 text-center">
+            <p className="text-gray-600 text-sm">
+              <span className="font-semibold">Coperto:</span> €1,50
+            </p>
           </div>
         </div>
       </section>

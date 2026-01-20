@@ -6,12 +6,12 @@ import icon05 from '../assets/icons/home-icon-05.svg'
 import icon06 from '../assets/icons/home-icon-06.svg'
 
 const categories = [
-  { icon: meatIcon, number: '25', label: 'Carne' },
-  { icon: icon02, number: '20', label: 'Panini' },
-  { icon: icon03, number: '35', label: 'Contorni' },
-  { icon: icon04, number: '08', label: 'Patate' },
-  { icon: icon05, number: '10', label: 'Vino' },
-  { icon: icon06, number: '20', label: 'Pollo' },
+  { icon: meatIcon, number: '12', label: 'Brace' },
+  { icon: icon02, number: '06', label: 'Antipasti' },
+  { icon: icon03, number: '10', label: 'Contorni' },
+  { icon: icon04, number: '03', label: 'Bimbi' },
+  { icon: icon05, number: '15', label: 'Vini' },
+  { icon: icon06, number: '01', label: 'Pollo' },
 ]
 
 export default function Categories() {

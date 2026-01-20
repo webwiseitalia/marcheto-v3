@@ -1,7 +1,22 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo_marcheto.png'
 
 export default function Header({ transparent = false }) {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Se transparent è true, lo sfondo appare solo dopo lo scroll
+  // Se transparent è false, lo sfondo è sempre visibile
+  const showBackground = !transparent || scrolled
 
   return (
     <header
@@ -9,8 +24,13 @@ export default function Header({ transparent = false }) {
     >
       {/* Navbar principale - full width */}
       <div
-        className="w-full px-6 md:px-12 lg:px-20 h-[100px] flex items-center"
-        style={{ backgroundColor: transparent ? 'transparent' : '#230500' }}
+        className={`w-full px-6 md:px-12 lg:px-20 h-[100px] flex items-center transition-all duration-300 ${
+          showBackground
+            ? transparent
+              ? 'bg-[#2a2a2a]/90 backdrop-blur-md shadow-lg'
+              : 'bg-[#230500] shadow-lg'
+            : 'bg-transparent'
+        }`}
       >
         <div className="w-full flex items-center justify-between">
           {/* Phone */}

@@ -122,9 +122,13 @@ export default function StreetFood() {
         </div>
       </div>
 
-      {/* Cerchio nero ESPLORA MENU - a cavallo con la sezione sotto */}
-      <Link to="/menu" className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20">
-        <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-gray-900 flex flex-col items-center justify-center text-white shadow-xl hover:bg-gray-800 transition-colors cursor-pointer">
+      {/* Cerchio ESPLORA MENU - a cavallo con la sezione sotto */}
+      <Link to="/menu" className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 group">
+        <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-full bg-[#c41e3a] flex flex-col items-center justify-center text-white shadow-2xl cursor-pointer transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(196,30,58,0.5)] border-4 border-white">
+          {/* Freccia animata */}
+          <svg className="w-6 h-6 mb-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
           <span className="text-xs md:text-sm uppercase tracking-widest font-medium">Esplora</span>
           <span className="text-lg md:text-xl uppercase tracking-wider font-bold">Menu</span>
         </div>
