@@ -112,9 +112,9 @@ export default function Hero() {
         }}
       >
         {/* Freccia rossa sopra */}
-        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-red-600 flex items-center justify-center mb-[-28px] z-10 shadow-lg">
-          <svg className="w-7 h-7 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        <div className="w-[54px] h-[54px] rounded-full bg-[#c7220e] flex items-center justify-center mb-[-27px] z-10 shadow-lg">
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </div>
 
@@ -126,7 +126,16 @@ export default function Hero() {
             border: '6px solid #f5a623'
           }}
         >
-          <span className="text-gray-900 font-bold tracking-widest uppercase text-xl md:text-2xl">Chiama</span>
+          <span
+            className="text-gray-900 uppercase -mt-1"
+            style={{
+              fontFamily: 'Antonio, sans-serif',
+              fontSize: '38px',
+              fontWeight: 700,
+              WebkitFontSmoothing: 'antialiased',
+              letterSpacing: '-2px'
+            }}
+          >CHIAMA</span>
         </a>
       </div>
     </section>
