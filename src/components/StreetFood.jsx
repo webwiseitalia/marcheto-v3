@@ -114,13 +114,21 @@ export default function StreetFood() {
             </div>
 
             {/* Titolo grande */}
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6 uppercase">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-4 uppercase">
               Vieni a provare il nostro street food
             </h2>
 
+            {/* Badge stagionale */}
+            <div className="inline-flex items-center gap-2 bg-[#c41e3a]/10 border border-[#c41e3a] rounded-full px-4 py-2 mb-6">
+              <svg className="w-5 h-5 text-[#c41e3a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span className="text-[#c41e3a] font-semibold text-sm uppercase tracking-wide">Maggio - Settembre</span>
+            </div>
+
             {/* Descrizione */}
             <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-8 max-w-lg">
-              Tra pochi mesi il nostro ristorante-macelleria si arricchirà con un reparto street food, dove poter gustare piatti veloci e saporiti preparati con le migliori carni fresche della nostra selezione. Un nuovo modo di vivere la qualità e la tradizione in un ambiente informale e accogliente!
+              Ogni anno, dal 20 maggio circa fino a fine settembre, il nostro ristorante-macelleria si arricchisce con il reparto street food! Vieni a gustare piatti veloci e saporiti preparati con le migliori carni fresche della nostra selezione. Un modo diverso di vivere la qualità e la tradizione in un ambiente informale e accogliente!
             </p>
 
             {/* Bottoni */}
