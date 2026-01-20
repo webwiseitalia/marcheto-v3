@@ -96,13 +96,13 @@ export default function WhyChooseUs() {
 
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         {/* Titolo con sottotitolo rosso */}
-        <div ref={titleRef} className="flex items-start justify-center gap-4 mb-12 md:mb-16">
-          <span className="text-red-600 text-sm md:text-base uppercase tracking-widest font-medium pt-2">
-            Perchè mangiare<br />da noi?
+        <div ref={titleRef} className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-12 md:mb-16 text-center md:text-left">
+          <span className="text-red-600 text-sm md:text-base uppercase tracking-widest font-medium">
+            Perchè mangiare<br className="hidden md:block" /> da noi?
           </span>
-          <div className="w-[1px] h-16 bg-gray-300 mx-4" />
+          <div className="hidden md:block w-[1px] h-16 bg-gray-300" />
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 uppercase leading-tight">
-            I nostri clienti ci<br />conoscono per:
+            I nostri clienti ci<br className="hidden md:block" /> conoscono per:
           </h2>
         </div>
 

@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Link } from 'react-router-dom'
 import burger from '../assets/images/burger.webp'
 import rosemarine from '../assets/images/rosemarine.webp'
 import rosemarine2 from '../assets/images/rosemarine-2.webp'
@@ -13,7 +12,6 @@ export default function StreetFood() {
   const burgerRef = useRef(null)
   const textRef = useRef(null)
   const featuresRef = useRef([])
-  const menuButtonRef = useRef(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -66,29 +64,13 @@ export default function StreetFood() {
           }
         }
       )
-
-      // Menu button - pulse animation
-      gsap.fromTo(menuButtonRef.current,
-        { opacity: 0, scale: 0 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.8,
-          ease: 'back.out(2)',
-          scrollTrigger: {
-            trigger: menuButtonRef.current,
-            start: 'top 90%',
-            toggleActions: 'play none none none'
-          }
-        }
-      )
     }, sectionRef)
 
     return () => ctx.revert()
   }, [])
 
   return (
-    <section ref={sectionRef} className="w-full bg-white py-20 md:py-28 pb-32 md:pb-40 relative overflow-visible">
+    <section ref={sectionRef} className="w-full bg-white py-20 md:py-28 pb-20 md:pb-40 relative overflow-visible">
       {/* Rametto rosmarino in alto a sinistra - nascosto su mobile */}
       <div className="hidden md:block absolute top-0 left-0 w-32 md:w-48 -translate-x-1/3 -translate-y-1/4 pointer-events-none">
         <img src={rosemarine} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={192} height={240} className="w-full h-auto" />
@@ -204,18 +186,6 @@ export default function StreetFood() {
           </div>
         </div>
       </div>
-
-      {/* Cerchio ESPLORA MENU - a cavallo con la sezione sotto */}
-      <Link ref={menuButtonRef} to="/menu" className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 group">
-        <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-full bg-[#c41e3a] flex flex-col items-center justify-center text-white shadow-2xl cursor-pointer transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(196,30,58,0.5)] border-4 border-white">
-          {/* Freccia animata */}
-          <svg className="w-6 h-6 mb-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-          <span className="text-xs md:text-sm uppercase tracking-widest font-medium">Esplora</span>
-          <span className="text-lg md:text-xl uppercase tracking-wider font-bold">Menu</span>
-        </div>
-      </Link>
     </section>
   )
 }

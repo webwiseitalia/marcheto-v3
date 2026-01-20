@@ -4,8 +4,6 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Header from '../components/Header'
 import logo from '../assets/images/logo_marcheto.webp'
-import rosemarine from '../assets/images/rosemarine.webp'
-import rosemarine2 from '../assets/images/rosemarine-2.webp'
 import menuHeroBg from '../assets/images/menu-hero-bg.webp'
 import tagliereMarcheto from '../assets/menu/tagliere-marcheto.webp'
 
@@ -350,18 +348,13 @@ export default function MenuPage() {
 
       {/* Sezione Menu Completo */}
       <section ref={menuSectionRef} className="w-full bg-white py-16 md:py-24 relative">
-        {/* Rosmarino decorativo a sinistra */}
-        <div className="absolute left-0 top-1/4 w-32 md:w-48 pointer-events-none">
-          <img src={rosemarine} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={192} height={240} className="w-full h-auto" />
-        </div>
-
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           {/* Titolo sezione */}
-          <div ref={menuTitleRef} className="flex items-center justify-center gap-4 mb-12">
+          <div ref={menuTitleRef} className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-12 text-center">
             <span className="text-red-600 text-sm uppercase tracking-widest font-medium">
               Piatti deliziosi
             </span>
-            <div className="w-px h-6 bg-gray-300" />
+            <div className="hidden md:block w-px h-6 bg-gray-300" />
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 uppercase tracking-wide">
               Menù completo
             </h2>

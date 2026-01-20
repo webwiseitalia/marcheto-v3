@@ -79,12 +79,30 @@ export default function Reviews() {
     return () => ctx.revert()
   }, [])
 
+  const animateReviewChange = (newIndex) => {
+    gsap.to(reviewRef.current, {
+      opacity: 0,
+      x: 20,
+      duration: 0.2,
+      ease: 'power2.in',
+      onComplete: () => {
+        setCurrentIndex(newIndex)
+        gsap.fromTo(reviewRef.current,
+          { opacity: 0, x: -20 },
+          { opacity: 1, x: 0, duration: 0.3, ease: 'power2.out' }
+        )
+      }
+    })
+  }
+
   const nextReview = () => {
-    setCurrentIndex((prev) => (prev + 1) % reviews.length)
+    const newIndex = (currentIndex + 1) % reviews.length
+    animateReviewChange(newIndex)
   }
 
   const prevReview = () => {
-    setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length)
+    const newIndex = (currentIndex - 1 + reviews.length) % reviews.length
+    animateReviewChange(newIndex)
   }
 
   const currentReview = reviews[currentIndex]
