@@ -1,6 +1,6 @@
 import steak from '../assets/images/steak.png'
 import bgImage from '../assets/images/bg-image.png'
-import originalText from '../assets/images/slider-02.png'
+import originalText from '../assets/images/slider-02.webp'
 import italianText from '../assets/images/slider-01.png'
 import badgeBg from '../assets/images/slider-03.png'
 import todayOffer from '../assets/images/slider-04.png'
@@ -54,28 +54,29 @@ export default function Hero() {
       </div>
 
       {/* Contenuto centrale - Original + ITALIAN - SOPRA IL PIATTO */}
-      <div className="relative z-20 text-center px-4 flex flex-col items-center pt-28 md:pt-36 lg:pt-40">
+      <div className="relative z-20 text-center px-4 flex flex-col items-center pt-20 md:pt-24 lg:pt-28">
         {/* Original - scritta elegante */}
         <div className="mb-0">
-          <img src={originalText} alt="Original" title="Original Italian" loading="eager" width={600} height={150} className="w-[280px] md:w-[450px] lg:w-[600px] h-auto mx-auto" />
+          <img src={originalText} alt="Original" title="Original Italian" loading="eager" width={500} height={125} className="w-[230px] md:w-[380px] lg:w-[500px] h-auto mx-auto" />
         </div>
 
         {/* ITALIAN - ENORME, appena sotto Original */}
-        <div className="relative z-10 -mt-16 md:-mt-28 lg:-mt-40">
-          <img src={italianText} alt="Italian" title="Italian Meat" loading="eager" width={1100} height={300} className="w-[85vw] md:w-[80vw] lg:w-[75vw] max-w-[1100px] h-auto mx-auto" />
+        <div className="relative z-10 -mt-16 md:-mt-[136px] lg:-mt-[184px]">
+          <img src={italianText} alt="Italian" title="Italian Meat" loading="eager" width={940} height={256} className="w-[85vw] md:w-[80vw] lg:w-[70vw] max-w-[940px] h-auto mx-auto" />
         </div>
       </div>
 
       {/* Piatto di carne rotante - posizionato più in alto */}
       <div
-        className="absolute left-1/2 -translate-x-1/2 w-[650px] md:w-[950px] lg:w-[1200px] xl:w-[1450px]"
+        className="absolute left-1/2 -translate-x-1/2 w-[700px] md:w-[1000px] lg:w-[1300px] xl:w-[1550px]"
         style={{
-          top: '12%',
-          zIndex: 5
+          top: 'calc(12% + 96px)',
+          zIndex: 5,
+          transform: 'translateX(-50%) scale(1.2)'
         }}
       >
-        <div className="w-full">
-          <img src={steak} alt="Piatto di bistecca alla brace" title="Bistecca Marcheto" loading="eager" width={1450} height={1450} className="w-full h-auto" />
+        <div className="w-full animate-spin-slow">
+          <img src={steak} alt="Piatto di bistecca alla brace" title="Bistecca Marcheto" loading="eager" width={1550} height={1550} className="w-full h-auto" />
         </div>
       </div>
 

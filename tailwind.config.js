@@ -14,6 +14,9 @@ export default {
       fontFamily: {
         'grotesk': ['Schibsted Grotesk', 'sans-serif'],
       },
+      animation: {
+        'spin-slow': 'spin 20s linear infinite',
+      },
     },
   },
   plugins: [],

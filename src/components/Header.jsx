@@ -8,7 +8,7 @@ export default function Header() {
     >
       {/* Navbar principale - full width, sfondo bordeaux scuro */}
       <div
-        className="w-full px-6 md:px-12 lg:px-20 py-5"
+        className="w-full px-6 md:px-12 lg:px-20 h-[100px] flex items-center"
         style={{ backgroundColor: '#230500' }}
       >
         <div className="w-full flex items-center justify-between">
@@ -33,7 +33,7 @@ export default function Header() {
               Home
             </a>
             <a href="#home" className="flex-shrink-0">
-              <img src={logo} alt="Marcheto" title="Logo Marcheto - Macelleria e Griglieria" loading="eager" width={80} height={80} className="h-14 md:h-18 lg:h-20 w-auto" />
+              <img src={logo} alt="Marcheto" title="Logo Marcheto - Macelleria e Griglieria" loading="eager" width={80} height={80} className="h-10 md:h-12 lg:h-14 w-auto" />
             </a>
             <a href="#menu" className="text-white hover:text-[#f5a623] transition-colors font-medium tracking-wider text-sm uppercase">
               Menu
