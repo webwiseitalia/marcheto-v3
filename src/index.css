@@ -13,6 +13,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
   background-color: #2d1810;
   color: white;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* Custom scrollbar */

@@ -255,7 +255,7 @@ export default function MenuPage() {
       <Header transparent />
 
       {/* Hero Section con immagine di sfondo */}
-      <section ref={heroRef} className="w-full relative">
+      <section ref={heroRef} className="w-full relative overflow-hidden">
         {/* Immagine di sfondo che include il bordo grunge e le decorazioni */}
         <img
           src={menuHeroBg}
@@ -264,17 +264,17 @@ export default function MenuPage() {
           loading="eager"
           width={1920}
           height={600}
-          className="w-full h-auto"
+          className="w-full h-auto min-h-[250px] object-cover"
         />
 
         {/* Contenuto hero sovrapposto all'immagine */}
-        <div ref={heroTitleRef} className="absolute inset-0 flex items-center justify-center pb-12 md:pb-16">
-          <div className="flex items-center justify-center gap-4 md:gap-6">
-            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider" style={{ fontFamily: 'Georgia, serif' }}>
+        <div ref={heroTitleRef} className="absolute inset-0 flex items-center justify-center pb-12 md:pb-16 px-4">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 text-center">
+            <h1 className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider" style={{ fontFamily: 'Georgia, serif' }}>
               Il nostro menù
             </h1>
-            <div className="w-px h-8 md:h-10 bg-white/50" />
-            <span className="text-[#f5a623] text-sm sm:text-base md:text-lg uppercase tracking-widest font-medium">
+            <div className="hidden md:block w-px h-8 md:h-10 bg-white/50" />
+            <span className="text-[#f5a623] text-xs sm:text-sm md:text-lg uppercase tracking-widest font-medium">
               Esperienza indimenticabile
             </span>
           </div>

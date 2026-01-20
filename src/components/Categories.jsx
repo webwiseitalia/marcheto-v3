@@ -25,6 +25,9 @@ export default function Categories() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Check se siamo su mobile
+      const isMobile = window.innerWidth < 768
+
       // Animazione staggered delle categorie
       gsap.fromTo(itemsRef.current,
         { opacity: 0, y: 50, scale: 0.8 },
@@ -35,7 +38,8 @@ export default function Categories() {
           duration: 0.6,
           stagger: 0.1,
           ease: 'back.out(1.2)',
-          scrollTrigger: {
+          delay: isMobile ? 0.8 : 0, // Su mobile parte dopo un piccolo delay
+          scrollTrigger: isMobile ? null : {
             trigger: sectionRef.current,
             start: 'top 80%',
             toggleActions: 'play none none none'
@@ -48,7 +52,7 @@ export default function Categories() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white -mt-40 md:-mt-56 lg:-mt-64" style={{ zIndex: 15 }}>
+    <section ref={sectionRef} className="relative w-full bg-white -mt-[700px] md:-mt-56 lg:-mt-64" style={{ zIndex: 15 }}>
       {/* Contenuto categorie */}
       <div className="w-full max-w-6xl mx-auto px-4 md:px-8 pt-16 md:pt-20 pb-16 md:pb-20">
         <div className="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-4">

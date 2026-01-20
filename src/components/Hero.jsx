@@ -26,50 +26,50 @@ export default function Hero() {
 
       // Animazione "Original" - fade in dall'alto
       tl.fromTo(originalRef.current,
-        { opacity: 0, y: -50 },
-        { opacity: 1, y: 0, duration: 1 }
+        { opacity: 0, y: -30 },
+        { opacity: 1, y: 0, duration: 0.6 }
       )
 
       // Animazione "ITALIAN" - scale up con fade
       .fromTo(italianRef.current,
         { opacity: 0, scale: 0.8 },
-        { opacity: 1, scale: 1, duration: 1.2 },
-        '-=0.5'
+        { opacity: 1, scale: 1, duration: 0.7 },
+        '-=0.3'
       )
 
       // Piatto - zoom in con bounce
       .fromTo(steakRef.current,
         { opacity: 0, scale: 0.5 },
-        { opacity: 1, scale: 1, duration: 1.5, ease: 'back.out(1.2)' },
-        '-=0.8'
+        { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.2)' },
+        '-=0.4'
       )
 
-      // Badge "Today Offer" - rotazione e scale
+      // Badge "Today Offer" - rotazione e scale (solo su desktop)
       .fromTo(badgeRef.current,
         { opacity: 0, scale: 0, rotation: -180 },
-        { opacity: 1, scale: 1, rotation: 0, duration: 1, ease: 'back.out(1.5)' },
-        '-=1'
+        { opacity: 1, scale: 1, rotation: 0, duration: 0.6, ease: 'back.out(1.5)' },
+        '-=0.5'
       )
 
       // Pulsante CHIAMA - bounce dal basso
       .fromTo(callButtonRef.current,
-        { opacity: 0, y: 100 },
-        { opacity: 1, y: 0, duration: 0.8, ease: 'back.out(1.7)' },
-        '-=0.5'
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'back.out(1.7)' },
+        '-=0.3'
       )
 
-      // Rosmarino sinistra - slide in
+      // Rosmarino sinistra - slide in (solo su desktop)
       .fromTo(rosemaryLeftRef.current,
-        { opacity: 0, x: -100 },
-        { opacity: 1, x: 0, duration: 1 },
-        '-=1.2'
+        { opacity: 0, x: -50 },
+        { opacity: 1, x: 0, duration: 0.6 },
+        '-=0.6'
       )
 
-      // Rosmarino destra - slide in
+      // Rosmarino destra - slide in (solo su desktop)
       .fromTo(rosemaryRightRef.current,
-        { opacity: 0, x: 100 },
-        { opacity: 1, x: 0, duration: 1 },
-        '-=1'
+        { opacity: 0, x: 50 },
+        { opacity: 1, x: 0, duration: 0.6 },
+        '-=0.5'
       )
     }, heroRef)
 
@@ -99,20 +99,20 @@ export default function Hero() {
           zIndex: 1
         }}
       />
-      {/* Rametto rosmarino sinistra */}
-      <div ref={rosemaryLeftRef} className="absolute left-0 top-[20%] w-44 md:w-64 lg:w-80 -translate-x-1/3 z-10 pointer-events-none">
+      {/* Rametto rosmarino sinistra - NASCOSTO su mobile */}
+      <div ref={rosemaryLeftRef} className="hidden md:block absolute left-0 top-[20%] w-44 md:w-64 lg:w-80 -translate-x-1/3 z-10 pointer-events-none">
         <img src={rosemarine} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={320} height={400} className="w-full h-auto" />
       </div>
 
-      {/* Rametto rosmarino destra */}
-      <div ref={rosemaryRightRef} className="absolute right-0 top-[20%] w-44 md:w-64 lg:w-80 translate-x-1/3 z-10 pointer-events-none">
+      {/* Rametto rosmarino destra - NASCOSTO su mobile */}
+      <div ref={rosemaryRightRef} className="hidden md:block absolute right-0 top-[20%] w-44 md:w-64 lg:w-80 translate-x-1/3 z-10 pointer-events-none">
         <img src={rosemarine2} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={320} height={400} className="w-full h-auto" />
       </div>
 
-      {/* Badge TODAY OFFER - posizionato più in basso vicino al piatto */}
+      {/* Badge TODAY OFFER - NASCOSTO su mobile */}
       <div
         ref={badgeRef}
-        className="absolute right-[2%] md:right-[6%] lg:right-[10%] top-[38%] md:top-[40%] w-44 md:w-64 lg:w-80 z-30"
+        className="hidden md:block absolute right-[2%] md:right-[6%] lg:right-[10%] top-[38%] md:top-[40%] w-44 md:w-64 lg:w-80 z-30"
       >
         <div className="relative">
           <img src={badgeBg} alt="Badge offerta" title="Badge offerta del giorno" loading="lazy" width={320} height={320} className="w-full h-auto" />
@@ -135,7 +135,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Piatto di carne rotante - posizionato più in alto */}
+      {/* Piatto di carne rotante - ALZATO di 100px su mobile */}
       <div
         ref={steakRef}
         className="absolute left-1/2 -translate-x-1/2 w-[700px] md:w-[1000px] lg:w-[1300px] xl:w-[1550px]"
@@ -145,12 +145,12 @@ export default function Hero() {
           transform: 'translateX(-50%) scale(1.2)'
         }}
       >
-        <div className="w-full animate-spin-slow">
+        <div className="w-full animate-spin-slow -mt-[100px] md:mt-0">
           <img src={steak} alt="Piatto di bistecca alla brace" title="Bistecca Marcheto" loading="eager" width={1550} height={1550} className="w-full h-auto" />
         </div>
       </div>
 
-      {/* Curva BIANCA - copre metà del piatto */}
+      {/* Curva BIANCA - PIÙ IN ALTO e MENO CURVA su mobile */}
       <div
         className="absolute left-0 right-0 w-full pointer-events-none"
         style={{
@@ -158,12 +158,25 @@ export default function Hero() {
           zIndex: 10
         }}
       >
+        {/* Curva mobile - meno pronunciata */}
         <svg
           viewBox="0 0 1440 700"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-          style={{ height: '500px' }}
+          className="w-full h-[850px] md:hidden"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0 0 Q720 120 1440 0 L1440 700 L0 700 Z"
+            fill="white"
+          />
+        </svg>
+        {/* Curva desktop - normale */}
+        <svg
+          viewBox="0 0 1440 700"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-[500px] hidden md:block"
           preserveAspectRatio="none"
         >
           <path
@@ -173,12 +186,11 @@ export default function Hero() {
         </svg>
       </div>
 
-      {/* Pulsante CHIAMA - sul bordo della curva bianca */}
+      {/* Pulsante CHIAMA - PIÙ IN ALTO su mobile */}
       <div
         ref={callButtonRef}
-        className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center"
+        className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center bottom-[720px] md:bottom-[300px]"
         style={{
-          bottom: '300px',
           zIndex: 20
         }}
       >
@@ -192,7 +204,7 @@ export default function Hero() {
         {/* Cerchio CHIAMA */}
         <a
           href="tel:+390364657048"
-          className="group flex items-center justify-center w-40 h-40 md:w-48 md:h-48 rounded-full bg-white shadow-2xl hover:shadow-3xl transition-shadow"
+          className="group flex items-center justify-center w-32 h-32 md:w-48 md:h-48 rounded-full bg-white shadow-2xl hover:shadow-3xl transition-shadow"
           style={{
             border: '6px solid #f5a623'
           }}
@@ -201,7 +213,7 @@ export default function Hero() {
             className="text-gray-900 uppercase -mt-5"
             style={{
               fontFamily: 'Antonio, sans-serif',
-              fontSize: '38px',
+              fontSize: 'clamp(28px, 5vw, 38px)',
               fontWeight: 700,
               WebkitFontSmoothing: 'antialiased',
               letterSpacing: '-2px'
