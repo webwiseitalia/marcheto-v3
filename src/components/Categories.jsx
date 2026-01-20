@@ -11,12 +11,12 @@ import icon06 from '../assets/icons/home-icon-06.svg'
 gsap.registerPlugin(ScrollTrigger)
 
 const categories = [
-  { icon: meatIcon, number: '12', label: 'Brace' },
-  { icon: icon02, number: '06', label: 'Antipasti' },
-  { icon: icon03, number: '10', label: 'Contorni' },
-  { icon: icon04, number: '03', label: 'Bimbi' },
-  { icon: icon05, number: '15', label: 'Vini' },
-  { icon: icon06, number: '01', label: 'Pollo' },
+  { icon: meatIcon, label: 'Brace' },
+  { icon: icon02, label: 'Panini' },
+  { icon: icon03, label: 'Contorni' },
+  { icon: icon04, label: 'Bimbi' },
+  { icon: icon05, label: 'Vini' },
+  { icon: icon06, label: 'Pollo' },
 ]
 
 export default function Categories() {
@@ -74,8 +74,7 @@ export default function Categories() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="text-[#b8292f] text-lg md:text-xl font-bold">{cat.number}</span>
-              <span className="text-gray-700 text-xs md:text-sm mt-1 font-medium">{cat.label}</span>
+              <span className="text-gray-700 text-xs md:text-sm font-medium">{cat.label}</span>
             </a>
           ))}
         </div>
