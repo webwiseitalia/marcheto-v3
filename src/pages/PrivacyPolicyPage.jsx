@@ -347,7 +347,7 @@ export default function PrivacyPolicyPage() {
             {/* Link navigazione */}
             <div className="flex gap-6 text-gray-400 text-sm">
               <Link to="/" onClick={() => window.scrollTo(0, 0)} className="hover:text-white transition-colors">Home</Link>
-              <Link to="/menu" onClick={() => window.scrollTo(0, 0)} className="hover:text-white transition-colors">Menu</Link>
+              <Link to="/menu" onClick={() => window.scrollTo(0, 0)} className="hover:text-white transition-colors">Menù</Link>
               <Link to="/privacy-policy" onClick={() => window.scrollTo(0, 0)} className="hover:text-white transition-colors">Privacy Policy</Link>
               <Link to="/cookie-policy" onClick={() => window.scrollTo(0, 0)} className="hover:text-white transition-colors">Cookie Policy</Link>
             </div>

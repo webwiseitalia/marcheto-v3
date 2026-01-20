@@ -81,12 +81,12 @@ export default function StreetFood() {
         <img src={rosemarine2} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={192} height={240} className="w-full h-auto" />
       </div>
 
-      {/* Pallini decorativi gialli e rossi */}
-      <div className="absolute left-[5%] top-[60%] w-3 h-3 rounded-full bg-[#f5a623]" />
-      <div className="absolute right-[8%] top-[25%] w-2 h-2 rounded-full bg-red-500" />
-      <div className="absolute right-[6%] top-[28%] w-1.5 h-1.5 rounded-full bg-[#f5a623]" />
-      <div className="absolute right-[35%] top-[45%] w-2 h-2 rounded-full bg-[#f5a623]" />
-      <div className="absolute right-[5%] bottom-[25%] w-3 h-3 rounded-full bg-[#f5a623]" />
+      {/* Pallini decorativi gialli e rossi - nascosti su mobile */}
+      <div className="hidden md:block absolute left-[5%] top-[60%] w-3 h-3 rounded-full bg-[#f5a623]" />
+      <div className="hidden md:block absolute right-[8%] top-[25%] w-2 h-2 rounded-full bg-red-500" />
+      <div className="hidden md:block absolute right-[6%] top-[28%] w-1.5 h-1.5 rounded-full bg-[#f5a623]" />
+      <div className="hidden md:block absolute right-[35%] top-[45%] w-2 h-2 rounded-full bg-[#f5a623]" />
+      <div className="hidden md:block absolute right-[5%] bottom-[25%] w-3 h-3 rounded-full bg-[#f5a623]" />
 
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">

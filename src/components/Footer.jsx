@@ -150,7 +150,7 @@ export default function Footer() {
           {/* Link navigazione */}
           <div className="flex flex-wrap gap-6 text-white text-sm justify-center">
             <Link to="/" onClick={scrollToTop} className="hover:text-[#f5a623] transition-colors">Home</Link>
-            <Link to="/menu" onClick={scrollToTop} className="hover:text-[#f5a623] transition-colors">Menu</Link>
+            <Link to="/menu" onClick={scrollToTop} className="hover:text-[#f5a623] transition-colors">Menù</Link>
             <Link to="/privacy-policy" onClick={scrollToTop} className="hover:text-[#f5a623] transition-colors">Privacy Policy</Link>
             <Link to="/cookie-policy" onClick={scrollToTop} className="hover:text-[#f5a623] transition-colors">Cookie Policy</Link>
           </div>

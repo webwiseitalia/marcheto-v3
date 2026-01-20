@@ -102,7 +102,7 @@ export default function Header({ transparent = false }) {
               <img src={logo} alt="Marcheto" title="Logo Marcheto - Macelleria e Griglieria" loading="eager" width={80} height={80} className="h-10 md:h-12 lg:h-14 w-auto" />
             </Link>
             <Link to="/menu" className="text-white hover:text-[#f5a623] transition-colors font-medium tracking-wider text-sm uppercase">
-              Menu
+              Menù
             </Link>
           </nav>
 
@@ -152,7 +152,7 @@ export default function Header({ transparent = false }) {
                 : 'border-transparent'
             }`}
           >
-            Menu
+            Menù
           </Link>
 
           {/* Divisore */}

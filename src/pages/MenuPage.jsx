@@ -281,11 +281,11 @@ export default function MenuPage() {
 
       {/* Sezione Intro - sfondo bianco/crema */}
       <section ref={introSectionRef} className="w-full bg-white pt-20 md:pt-28 pb-16 md:pb-24 relative">
-        {/* Pallino rosso sopra l'immagine */}
-        <div className="absolute left-[18%] md:left-[22%] top-12 md:top-16 w-3 h-3 rounded-full bg-[#c41e3a] z-10" />
+        {/* Pallino rosso sopra l'immagine - nascosto su mobile */}
+        <div className="hidden md:block absolute left-[22%] top-16 w-3 h-3 rounded-full bg-[#c41e3a] z-10" />
 
-        {/* Pallino rosso estrema sinistra */}
-        <div className="absolute left-4 md:left-8 bottom-1/3 w-3 h-3 rounded-full bg-[#c41e3a]" />
+        {/* Pallino rosso estrema sinistra - nascosto su mobile */}
+        <div className="hidden md:block absolute left-8 bottom-1/3 w-3 h-3 rounded-full bg-[#c41e3a]" />
 
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
@@ -314,11 +314,11 @@ export default function MenuPage() {
 
               {/* Titolo grande */}
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-4 uppercase">
-                Il nostro<br />menu.
+                Il nostro<br />menù.
               </h2>
 
-              {/* Pallino rosa piccolo */}
-              <div className="w-1.5 h-1.5 rounded-full bg-pink-300 mb-6" />
+              {/* Pallino rosa piccolo - nascosto su mobile */}
+              <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-pink-300 mb-6" />
 
               {/* Descrizione */}
               <p className="text-gray-500 text-base leading-relaxed max-w-md">
@@ -520,7 +520,7 @@ export default function MenuPage() {
             {/* Link navigazione */}
             <div className="flex flex-wrap gap-6 text-white text-sm justify-center">
               <Link to="/" onClick={scrollToTop} className="hover:text-[#f5a623] transition-colors">Home</Link>
-              <Link to="/menu" onClick={scrollToTop} className="hover:text-[#f5a623] transition-colors">Menu</Link>
+              <Link to="/menu" onClick={scrollToTop} className="hover:text-[#f5a623] transition-colors">Menù</Link>
               <Link to="/privacy-policy" onClick={scrollToTop} className="hover:text-[#f5a623] transition-colors">Privacy Policy</Link>
               <Link to="/cookie-policy" onClick={scrollToTop} className="hover:text-[#f5a623] transition-colors">Cookie Policy</Link>
             </div>
