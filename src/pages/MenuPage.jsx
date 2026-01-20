@@ -490,15 +490,15 @@ export default function MenuPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
             {/* Logo */}
             <div ref={el => footerColumnsRef.current[0] = el} className="flex justify-center md:justify-start">
-              <img src={logo} alt="Marcheto" title="Logo Marcheto" loading="lazy" width={128} height={64} className="h-16" />
+              <img src={logo} alt="Marcheto" title="Logo Marcheto" loading="lazy" width={120} height={64} className="h-16 w-auto object-contain" />
             </div>
 
             {/* Vieni a trovarci */}
             <div ref={el => footerColumnsRef.current[1] = el} className="text-center md:text-left">
-              <h4 className="text-white font-semibold mb-3 text-sm">
+              <h4 className="text-[#f5a623] font-semibold mb-3 text-sm uppercase tracking-wider">
                 Vieni a trovarci
               </h4>
-              <div className="text-gray-400 text-sm space-y-1">
+              <div className="text-white text-sm space-y-1">
                 <p>Via Nazionale 133 25040,</p>
                 <p>Malonno (B.S.)</p>
               </div>
@@ -506,10 +506,10 @@ export default function MenuPage() {
 
             {/* Orari apertura */}
             <div ref={el => footerColumnsRef.current[2] = el} className="text-center md:text-left">
-              <h4 className="text-white font-semibold mb-3 text-sm">
+              <h4 className="text-[#f5a623] font-semibold mb-3 text-sm uppercase tracking-wider">
                 Orari apertura
               </h4>
-              <div className="text-gray-400 text-sm space-y-1">
+              <div className="text-white text-sm space-y-1">
                 <p>Vi aspettiamo dalle 9 alle 22 tutti i</p>
                 <p>giorni. (mercoledì chiuso)</p>
               </div>
@@ -517,12 +517,12 @@ export default function MenuPage() {
 
             {/* Social */}
             <div ref={el => footerColumnsRef.current[3] = el} className="text-center md:text-left">
-              <h4 className="text-white font-semibold mb-3 text-sm">
+              <h4 className="text-[#f5a623] font-semibold mb-3 text-sm uppercase tracking-wider">
                 Seguici e resta aggiornato
               </h4>
               <div className="flex gap-3 justify-center md:justify-start">
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/p/Marcheto-macelleria-con-griglieria-100063525702122/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-gray-600 flex items-center justify-center text-white hover:bg-[#f5a623] transition-colors"
@@ -532,7 +532,7 @@ export default function MenuPage() {
                   </svg>
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/macelleriagriglieria_marcheto/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-gray-600 flex items-center justify-center text-white hover:bg-[#f5a623] transition-colors"
@@ -551,17 +551,17 @@ export default function MenuPage() {
           {/* Bottom: Link e Copyright */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Link navigazione */}
-            <div className="flex flex-wrap gap-6 text-gray-400 text-sm justify-center">
-              <Link to="/" onClick={scrollToTop} className="hover:text-white transition-colors">Home</Link>
-              <Link to="/menu" onClick={scrollToTop} className="hover:text-white transition-colors">Menu</Link>
-              <Link to="/privacy-policy" onClick={scrollToTop} className="hover:text-white transition-colors">Privacy Policy</Link>
-              <Link to="/cookie-policy" onClick={scrollToTop} className="hover:text-white transition-colors">Cookie Policy</Link>
+            <div className="flex flex-wrap gap-6 text-white text-sm justify-center">
+              <Link to="/" onClick={scrollToTop} className="hover:text-[#f5a623] transition-colors">Home</Link>
+              <Link to="/menu" onClick={scrollToTop} className="hover:text-[#f5a623] transition-colors">Menu</Link>
+              <Link to="/privacy-policy" onClick={scrollToTop} className="hover:text-[#f5a623] transition-colors">Privacy Policy</Link>
+              <Link to="/cookie-policy" onClick={scrollToTop} className="hover:text-[#f5a623] transition-colors">Cookie Policy</Link>
             </div>
 
             {/* Copyright */}
-            <p className="text-gray-500 text-sm">
+            <p className="text-white/90 text-sm">
               © {new Date().getFullYear()} Powered by{' '}
-              <a href="https://webwiseitalia.com" target="_blank" rel="noopener noreferrer" className="text-white underline hover:text-[#f5a623] transition-colors">
+              <a href="https://webwiseitalia.com" target="_blank" rel="noopener noreferrer" className="text-[#f5a623] underline hover:text-white transition-colors">
                 WebWise
               </a>
             </p>
