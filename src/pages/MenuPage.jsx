@@ -1,11 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Header from '../components/Header'
 import logo from '../assets/images/logo_marcheto.png'
 import rosemarine from '../assets/images/rosemarine.png'
 import rosemarine2 from '../assets/images/rosemarine-2.png'
 import menuHeroBg from '../assets/images/menu-hero-bg.webp'
 import tagliereMarcheto from '../assets/menu/tagliere-marcheto.webp'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const menuCategories = {
   antipasti: [
@@ -91,9 +95,155 @@ const categoryLabels = {
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState('antipasti')
 
+  // Refs per animazioni
+  const heroRef = useRef(null)
+  const heroTitleRef = useRef(null)
+  const introSectionRef = useRef(null)
+  const introImageRef = useRef(null)
+  const introTextRef = useRef(null)
+  const menuSectionRef = useRef(null)
+  const menuTitleRef = useRef(null)
+  const tabsRef = useRef(null)
+  const menuItemsRef = useRef([])
+  const footerRef = useRef(null)
+  const footerTitleRef = useRef(null)
+  const footerColumnsRef = useRef([])
+
   useEffect(() => {
     window.scrollTo(0, 0)
+
+    const ctx = gsap.context(() => {
+      // Hero - titolo che appare
+      gsap.fromTo(heroTitleRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          delay: 0.3
+        }
+      )
+
+      // Intro section - immagine da sinistra
+      gsap.fromTo(introImageRef.current,
+        { opacity: 0, x: -80, scale: 0.9 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: introSectionRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+
+      // Intro section - testo da destra
+      gsap.fromTo(introTextRef.current,
+        { opacity: 0, x: 80 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          delay: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: introSectionRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+
+      // Menu section - titolo dall'alto
+      gsap.fromTo(menuTitleRef.current,
+        { opacity: 0, y: -40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: menuSectionRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+
+      // Tabs - staggered dal basso
+      gsap.fromTo(tabsRef.current?.children || [],
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'back.out(1.2)',
+          scrollTrigger: {
+            trigger: menuSectionRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+
+      // Footer - titolo
+      gsap.fromTo(footerTitleRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+
+      // Footer - colonne staggered
+      gsap.fromTo(footerColumnsRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+    })
+
+    return () => ctx.revert()
   }, [])
+
+  // Animazione menu items quando cambiano categoria
+  useEffect(() => {
+    if (menuItemsRef.current.length > 0) {
+      gsap.fromTo(menuItemsRef.current,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+          stagger: 0.05,
+          ease: 'power2.out'
+        }
+      )
+    }
+  }, [activeCategory])
 
   const scrollToTop = () => {
     window.scrollTo(0, 0)
@@ -105,7 +255,7 @@ export default function MenuPage() {
       <Header transparent />
 
       {/* Hero Section con immagine di sfondo */}
-      <section className="w-full relative">
+      <section ref={heroRef} className="w-full relative">
         {/* Immagine di sfondo che include il bordo grunge e le decorazioni */}
         <img
           src={menuHeroBg}
@@ -118,7 +268,7 @@ export default function MenuPage() {
         />
 
         {/* Contenuto hero sovrapposto all'immagine */}
-        <div className="absolute inset-0 flex items-center justify-center pb-12 md:pb-16">
+        <div ref={heroTitleRef} className="absolute inset-0 flex items-center justify-center pb-12 md:pb-16">
           <div className="flex items-center justify-center gap-4 md:gap-6">
             <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider" style={{ fontFamily: 'Georgia, serif' }}>
               Il nostro menù
@@ -132,7 +282,7 @@ export default function MenuPage() {
       </section>
 
       {/* Sezione Intro - sfondo bianco/crema */}
-      <section className="w-full bg-white pt-20 md:pt-28 pb-16 md:pb-24 relative">
+      <section ref={introSectionRef} className="w-full bg-white pt-20 md:pt-28 pb-16 md:pb-24 relative">
         {/* Pallino rosso sopra l'immagine */}
         <div className="absolute left-[18%] md:left-[22%] top-12 md:top-16 w-3 h-3 rounded-full bg-[#c41e3a] z-10" />
 
@@ -142,7 +292,7 @@ export default function MenuPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
             {/* Immagine a sinistra */}
-            <div className="flex-1 max-w-lg">
+            <div ref={introImageRef} className="flex-1 max-w-lg">
               <img
                 src={tagliereMarcheto}
                 alt="Tagliere Marcheto con affettati misti"
@@ -155,7 +305,7 @@ export default function MenuPage() {
             </div>
 
             {/* Testo centrale */}
-            <div className="flex-1 relative">
+            <div ref={introTextRef} className="flex-1 relative">
               {/* Sottotitolo rosso con linea */}
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-8 h-[2px] bg-[#c41e3a]" />
@@ -199,7 +349,7 @@ export default function MenuPage() {
       </section>
 
       {/* Sezione Menu Completo */}
-      <section className="w-full bg-white py-16 md:py-24 relative">
+      <section ref={menuSectionRef} className="w-full bg-white py-16 md:py-24 relative">
         {/* Rosmarino decorativo a sinistra */}
         <div className="absolute left-0 top-1/4 w-32 md:w-48 pointer-events-none">
           <img src={rosemarine} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={192} height={240} className="w-full h-auto" />
@@ -207,7 +357,7 @@ export default function MenuPage() {
 
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           {/* Titolo sezione */}
-          <div className="flex items-center justify-center gap-4 mb-12">
+          <div ref={menuTitleRef} className="flex items-center justify-center gap-4 mb-12">
             <span className="text-red-600 text-sm uppercase tracking-widest font-medium">
               Piatti deliziosi
             </span>
@@ -218,14 +368,14 @@ export default function MenuPage() {
           </div>
 
           {/* Tabs con icone */}
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 mb-12 md:mb-16">
+          <div ref={tabsRef} className="flex flex-wrap justify-center gap-8 md:gap-16 mb-12 md:mb-16">
             {Object.keys(categoryLabels).map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`flex flex-col items-center gap-2 transition-colors ${
+                className={`flex flex-col items-center gap-2 transition-all duration-300 ${
                   activeCategory === cat
-                    ? 'text-red-600'
+                    ? 'text-red-600 scale-110'
                     : 'text-gray-400 hover:text-gray-600'
                 }`}
               >
@@ -243,7 +393,8 @@ export default function MenuPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-1">
             {menuCategories[activeCategory].map((item, index) => (
               <div
-                key={index}
+                key={`${activeCategory}-${index}`}
+                ref={el => menuItemsRef.current[index] = el}
                 className="py-4 group"
               >
                 {/* Riga principale: Nome + linea punteggiata + Prezzo */}
@@ -316,6 +467,7 @@ export default function MenuPage() {
 
       {/* Footer */}
       <footer
+        ref={footerRef}
         className="w-full py-12 md:py-16 relative"
         style={{
           backgroundColor: '#2a2a2a',
@@ -325,7 +477,7 @@ export default function MenuPage() {
       >
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
           {/* Titolo grande con numero telefono */}
-          <div className="text-center mb-12">
+          <div ref={footerTitleRef} className="text-center mb-12">
             <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-wide">
               Il sapore che lascia il segno{' '}
               <a href="tel:+390364657048" className="underline hover:text-[#f5a623] transition-colors">
@@ -337,12 +489,12 @@ export default function MenuPage() {
           {/* Griglia: Logo, Contatti, Orari, Social */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
             {/* Logo */}
-            <div className="flex justify-center md:justify-start">
+            <div ref={el => footerColumnsRef.current[0] = el} className="flex justify-center md:justify-start">
               <img src={logo} alt="Marcheto" title="Logo Marcheto" loading="lazy" width={128} height={64} className="h-16" />
             </div>
 
             {/* Vieni a trovarci */}
-            <div className="text-center md:text-left">
+            <div ref={el => footerColumnsRef.current[1] = el} className="text-center md:text-left">
               <h4 className="text-white font-semibold mb-3 text-sm">
                 Vieni a trovarci
               </h4>
@@ -353,7 +505,7 @@ export default function MenuPage() {
             </div>
 
             {/* Orari apertura */}
-            <div className="text-center md:text-left">
+            <div ref={el => footerColumnsRef.current[2] = el} className="text-center md:text-left">
               <h4 className="text-white font-semibold mb-3 text-sm">
                 Orari apertura
               </h4>
@@ -364,7 +516,7 @@ export default function MenuPage() {
             </div>
 
             {/* Social */}
-            <div className="text-center md:text-left">
+            <div ref={el => footerColumnsRef.current[3] = el} className="text-center md:text-left">
               <h4 className="text-white font-semibold mb-3 text-sm">
                 Seguici e resta aggiornato
               </h4>
