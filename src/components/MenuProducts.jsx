@@ -1,9 +1,14 @@
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import asado from '../assets/menu/asado-argentino.jpg'
 import costata from '../assets/menu/costata.jpg'
 import fiorentina from '../assets/menu/fiorentina.jpg'
 import picanha from '../assets/menu/picanha.jpg'
 import tagliata from '../assets/menu/tagliata.jpg'
 import tartare from '../assets/menu/tartare.jpg'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const products = [
   {
@@ -60,11 +65,56 @@ const products = [
 ]
 
 export default function MenuProducts() {
+  const sectionRef = useRef(null)
+  const titleRef = useRef(null)
+  const productsRef = useRef([])
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Titolo - fade in dall'alto
+      gsap.fromTo(titleRef.current,
+        { opacity: 0, y: -30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+
+      // Prodotti - staggered con alternanza sinistra/destra
+      productsRef.current.forEach((product, index) => {
+        const isLeft = index % 2 === 0
+        gsap.fromTo(product,
+          { opacity: 0, x: isLeft ? -50 : 50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.7,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: product,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        )
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section id="menu" className="w-full bg-[#f5f5f0] pt-24 md:pt-28 pb-16 md:pb-24">
+    <section ref={sectionRef} id="menu" className="w-full bg-[#f5f5f0] pt-24 md:pt-28 pb-16 md:pb-24">
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         {/* Titolo con linea e sottotitolo */}
-        <div className="flex items-center justify-center gap-4 mb-12 md:mb-16">
+        <div ref={titleRef} className="flex items-center justify-center gap-4 mb-12 md:mb-16">
           <span className="text-red-700 text-sm md:text-base uppercase tracking-widest font-medium italic">
             I migliori piatti
           </span>
@@ -79,6 +129,7 @@ export default function MenuProducts() {
           {products.map((product, index) => (
             <div
               key={index}
+              ref={el => productsRef.current[index] = el}
               className="flex items-start gap-5"
             >
               {/* Immagine circolare con badge */}

@@ -1,7 +1,12 @@
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import rosemarine2 from '../assets/images/rosemarine-2.png'
 import { GiMeat, GiChefToque, GiSausage, GiCookingPot } from 'react-icons/gi'
 import { BiLike } from 'react-icons/bi'
 import { HiOutlineHome } from 'react-icons/hi'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const features = [
   {
@@ -37,8 +42,53 @@ const features = [
 ]
 
 export default function WhyChooseUs() {
+  const sectionRef = useRef(null)
+  const titleRef = useRef(null)
+  const featuresRef = useRef([])
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Titolo - fade in
+      gsap.fromTo(titleRef.current,
+        { opacity: 0, y: -30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+
+      // Features - staggered con alternanza
+      featuresRef.current.forEach((feature, index) => {
+        const isLeft = index % 2 === 0
+        gsap.fromTo(feature,
+          { opacity: 0, x: isLeft ? -40 : 40 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: feature,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        )
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section className="w-full bg-white py-16 md:py-24 relative overflow-hidden">
+    <section ref={sectionRef} className="w-full bg-white py-16 md:py-24 relative overflow-hidden">
       {/* Rametto rosmarino a destra */}
       <div className="absolute bottom-0 right-0 w-48 md:w-64 translate-x-1/4 translate-y-1/4 pointer-events-none">
         <img src={rosemarine2} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={256} height={320} className="w-full h-auto" />
@@ -46,7 +96,7 @@ export default function WhyChooseUs() {
 
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         {/* Titolo con sottotitolo rosso */}
-        <div className="flex items-start justify-center gap-4 mb-12 md:mb-16">
+        <div ref={titleRef} className="flex items-start justify-center gap-4 mb-12 md:mb-16">
           <span className="text-red-600 text-sm md:text-base uppercase tracking-widest font-medium pt-2">
             Perchè mangiare<br />da noi?
           </span>
@@ -64,6 +114,7 @@ export default function WhyChooseUs() {
           {features.map((feature, index) => (
             <div
               key={index}
+              ref={el => featuresRef.current[index] = el}
               className={`flex items-start gap-6 p-8 md:p-10 border-b border-gray-200 ${
                 index % 2 === 0 ? 'md:border-r' : ''
               }`}

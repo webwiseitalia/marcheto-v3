@@ -1,11 +1,94 @@
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
 import burger from '../assets/images/burger.png'
 import rosemarine from '../assets/images/rosemarine.png'
 import rosemarine2 from '../assets/images/rosemarine-2.png'
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function StreetFood() {
+  const sectionRef = useRef(null)
+  const burgerRef = useRef(null)
+  const textRef = useRef(null)
+  const featuresRef = useRef([])
+  const menuButtonRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Burger - float in da sinistra con leggera rotazione
+      gsap.fromTo(burgerRef.current,
+        { opacity: 0, x: -100, rotation: -15 },
+        {
+          opacity: 1,
+          x: 0,
+          rotation: 0,
+          duration: 1.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 70%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+
+      // Testo - fade in da destra
+      gsap.fromTo(textRef.current,
+        { opacity: 0, x: 100 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 70%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+
+      // Feature boxes - staggered dal basso
+      gsap.fromTo(featuresRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'back.out(1.2)',
+          scrollTrigger: {
+            trigger: featuresRef.current[0],
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+
+      // Menu button - pulse animation
+      gsap.fromTo(menuButtonRef.current,
+        { opacity: 0, scale: 0 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          ease: 'back.out(2)',
+          scrollTrigger: {
+            trigger: menuButtonRef.current,
+            start: 'top 90%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section className="w-full bg-white py-20 md:py-28 pb-32 md:pb-40 relative overflow-visible">
+    <section ref={sectionRef} className="w-full bg-white py-20 md:py-28 pb-32 md:pb-40 relative overflow-visible">
       {/* Rametto rosmarino in alto a sinistra */}
       <div className="absolute top-0 left-0 w-32 md:w-48 -translate-x-1/3 -translate-y-1/4 pointer-events-none">
         <img src={rosemarine} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={192} height={240} className="w-full h-auto" />
@@ -26,7 +109,7 @@ export default function StreetFood() {
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
           {/* Immagine hamburger esploso - a sinistra */}
-          <div className="flex-1 flex justify-center">
+          <div ref={burgerRef} className="flex-1 flex justify-center">
             <img
               src={burger}
               alt="Hamburger gourmet Marcheto"
@@ -39,7 +122,7 @@ export default function StreetFood() {
           </div>
 
           {/* Testo - a destra */}
-          <div className="flex-1">
+          <div ref={textRef} className="flex-1">
             {/* Sottotitolo con linea rossa */}
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-[2px] bg-red-600" />
@@ -82,7 +165,7 @@ export default function StreetFood() {
         {/* Feature boxes in basso */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 md:mt-24">
           {/* Prodotti Italiani */}
-          <div className="flex items-center gap-4 bg-gray-50 rounded-2xl p-6 shadow-sm">
+          <div ref={el => featuresRef.current[0] = el} className="flex items-center gap-4 bg-gray-50 rounded-2xl p-6 shadow-sm">
             <div className="w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0">
               <svg className="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
@@ -95,7 +178,7 @@ export default function StreetFood() {
           </div>
 
           {/* Consumazione sul posto */}
-          <div className="flex items-center gap-4 bg-gray-50 rounded-2xl p-6 shadow-sm">
+          <div ref={el => featuresRef.current[1] = el} className="flex items-center gap-4 bg-gray-50 rounded-2xl p-6 shadow-sm">
             <div className="w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0">
               <svg className="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -108,7 +191,7 @@ export default function StreetFood() {
           </div>
 
           {/* Qualità eccellente */}
-          <div className="flex items-center gap-4 bg-gray-50 rounded-2xl p-6 shadow-sm">
+          <div ref={el => featuresRef.current[2] = el} className="flex items-center gap-4 bg-gray-50 rounded-2xl p-6 shadow-sm">
             <div className="w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0">
               <svg className="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
@@ -123,7 +206,7 @@ export default function StreetFood() {
       </div>
 
       {/* Cerchio ESPLORA MENU - a cavallo con la sezione sotto */}
-      <Link to="/menu" className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 group">
+      <Link ref={menuButtonRef} to="/menu" className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 group">
         <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-full bg-[#c41e3a] flex flex-col items-center justify-center text-white shadow-2xl cursor-pointer transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(196,30,58,0.5)] border-4 border-white">
           {/* Freccia animata */}
           <svg className="w-6 h-6 mb-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

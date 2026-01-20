@@ -1,4 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const reviews = [
   {
@@ -32,6 +36,48 @@ const reviews = [
 
 export default function Reviews() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const sectionRef = useRef(null)
+  const titleRef = useRef(null)
+  const reviewRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Titolo - slide in da sinistra
+      gsap.fromTo(titleRef.current,
+        { opacity: 0, x: -50 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+
+      // Recensione - fade in
+      gsap.fromTo(reviewRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: 0.3,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
 
   const nextReview = () => {
     setCurrentIndex((prev) => (prev + 1) % reviews.length)
@@ -44,11 +90,11 @@ export default function Reviews() {
   const currentReview = reviews[currentIndex]
 
   return (
-    <section className="w-full bg-white py-16 md:py-24">
+    <section ref={sectionRef} className="w-full bg-white py-16 md:py-24">
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row items-start justify-center gap-12 md:gap-24">
           {/* Lato sinistro - Titolo e frecce */}
-          <div className="flex-shrink-0">
+          <div ref={titleRef} className="flex-shrink-0">
             {/* Cuoricino + RECENSIONI */}
             <div className="flex items-center gap-2 mb-4">
               <span className="text-red-600 text-lg">❤</span>
@@ -82,7 +128,7 @@ export default function Reviews() {
           </div>
 
           {/* Lato destro - Recensione */}
-          <div className="flex items-start gap-6 md:gap-10 flex-1">
+          <div ref={reviewRef} className="flex items-start gap-6 md:gap-10 flex-1">
             {/* Nome verticale */}
             <div
               className="text-gray-400 text-xs font-bold uppercase tracking-widest whitespace-nowrap"

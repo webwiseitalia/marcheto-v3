@@ -1,13 +1,62 @@
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo_marcheto.png'
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function Footer() {
+  const footerRef = useRef(null)
+  const titleRef = useRef(null)
+  const columnsRef = useRef([])
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Titolo - fade in
+      gsap.fromTo(titleRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+
+      // Colonne - staggered
+      gsap.fromTo(columnsRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+    }, footerRef)
+
+    return () => ctx.revert()
+  }, [])
+
   const scrollToTop = () => {
     window.scrollTo(0, 0)
   }
 
   return (
     <footer
+      ref={footerRef}
       className="w-full py-12 md:py-16 relative"
       style={{
         backgroundColor: '#2a2a2a',
@@ -17,7 +66,7 @@ export default function Footer() {
     >
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         {/* Titolo grande con numero telefono */}
-        <div className="text-center mb-12">
+        <div ref={titleRef} className="text-center mb-12">
           <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-wide">
             Il sapore che lascia il segno{' '}
             <a href="tel:+390364657048" className="underline hover:text-[#f5a623] transition-colors">
@@ -29,7 +78,7 @@ export default function Footer() {
         {/* Griglia: Logo, Contatti, Orari, Social */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
           {/* Logo */}
-          <div className="flex justify-center md:justify-start">
+          <div ref={el => columnsRef.current[0] = el} className="flex justify-center md:justify-start">
             <img
               src={logo}
               alt="Marcheto"
@@ -42,7 +91,7 @@ export default function Footer() {
           </div>
 
           {/* Vieni a trovarci */}
-          <div className="text-center md:text-left">
+          <div ref={el => columnsRef.current[1] = el} className="text-center md:text-left">
             <h4 className="text-white font-semibold mb-3 text-sm">
               Vieni a trovarci
             </h4>
@@ -53,7 +102,7 @@ export default function Footer() {
           </div>
 
           {/* Orari apertura */}
-          <div className="text-center md:text-left">
+          <div ref={el => columnsRef.current[2] = el} className="text-center md:text-left">
             <h4 className="text-white font-semibold mb-3 text-sm">
               Orari apertura
             </h4>
@@ -64,7 +113,7 @@ export default function Footer() {
           </div>
 
           {/* Social */}
-          <div className="text-center md:text-left">
+          <div ref={el => columnsRef.current[3] = el} className="text-center md:text-left">
             <h4 className="text-white font-semibold mb-3 text-sm">
               Seguici e resta aggiornato
             </h4>

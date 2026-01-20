@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
 import steak from '../assets/images/steak.png'
 import bgImage from '../assets/images/bg-image.png'
 import originalText from '../assets/images/slider-02.webp'
@@ -8,9 +10,75 @@ import rosemarine from '../assets/images/rosemarine.png'
 import rosemarine2 from '../assets/images/rosemarine-2.png'
 
 export default function Hero() {
+  const heroRef = useRef(null)
+  const originalRef = useRef(null)
+  const italianRef = useRef(null)
+  const steakRef = useRef(null)
+  const badgeRef = useRef(null)
+  const callButtonRef = useRef(null)
+  const rosemaryLeftRef = useRef(null)
+  const rosemaryRightRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Timeline principale
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+
+      // Animazione "Original" - fade in dall'alto
+      tl.fromTo(originalRef.current,
+        { opacity: 0, y: -50 },
+        { opacity: 1, y: 0, duration: 1 }
+      )
+
+      // Animazione "ITALIAN" - scale up con fade
+      .fromTo(italianRef.current,
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, duration: 1.2 },
+        '-=0.5'
+      )
+
+      // Piatto - zoom in con bounce
+      .fromTo(steakRef.current,
+        { opacity: 0, scale: 0.5 },
+        { opacity: 1, scale: 1, duration: 1.5, ease: 'back.out(1.2)' },
+        '-=0.8'
+      )
+
+      // Badge "Today Offer" - rotazione e scale
+      .fromTo(badgeRef.current,
+        { opacity: 0, scale: 0, rotation: -180 },
+        { opacity: 1, scale: 1, rotation: 0, duration: 1, ease: 'back.out(1.5)' },
+        '-=1'
+      )
+
+      // Pulsante CHIAMA - bounce dal basso
+      .fromTo(callButtonRef.current,
+        { opacity: 0, y: 100 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'back.out(1.7)' },
+        '-=0.5'
+      )
+
+      // Rosmarino sinistra - slide in
+      .fromTo(rosemaryLeftRef.current,
+        { opacity: 0, x: -100 },
+        { opacity: 1, x: 0, duration: 1 },
+        '-=1.2'
+      )
+
+      // Rosmarino destra - slide in
+      .fromTo(rosemaryRightRef.current,
+        { opacity: 0, x: 100 },
+        { opacity: 1, x: 0, duration: 1 },
+        '-=1'
+      )
+    }, heroRef)
+
+    return () => ctx.revert()
+  }, [])
 
   return (
     <section
+      ref={heroRef}
       id="home"
       className="relative w-full flex flex-col items-center justify-start"
       style={{
@@ -32,17 +100,18 @@ export default function Hero() {
         }}
       />
       {/* Rametto rosmarino sinistra */}
-      <div className="absolute left-0 top-[20%] w-44 md:w-64 lg:w-80 -translate-x-1/3 z-10 pointer-events-none">
+      <div ref={rosemaryLeftRef} className="absolute left-0 top-[20%] w-44 md:w-64 lg:w-80 -translate-x-1/3 z-10 pointer-events-none">
         <img src={rosemarine} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={320} height={400} className="w-full h-auto" />
       </div>
 
       {/* Rametto rosmarino destra */}
-      <div className="absolute right-0 top-[20%] w-44 md:w-64 lg:w-80 translate-x-1/3 z-10 pointer-events-none">
+      <div ref={rosemaryRightRef} className="absolute right-0 top-[20%] w-44 md:w-64 lg:w-80 translate-x-1/3 z-10 pointer-events-none">
         <img src={rosemarine2} alt="Decorazione rosmarino" title="Rosmarino decorativo" loading="lazy" width={320} height={400} className="w-full h-auto" />
       </div>
 
       {/* Badge TODAY OFFER - posizionato più in basso vicino al piatto */}
       <div
+        ref={badgeRef}
         className="absolute right-[2%] md:right-[6%] lg:right-[10%] top-[38%] md:top-[40%] w-44 md:w-64 lg:w-80 z-30"
       >
         <div className="relative">
@@ -56,18 +125,19 @@ export default function Hero() {
       {/* Contenuto centrale - Original + ITALIAN - SOPRA IL PIATTO */}
       <div className="relative z-20 text-center px-4 flex flex-col items-center pt-20 md:pt-24 lg:pt-28">
         {/* Original - scritta elegante */}
-        <div className="mb-0">
+        <div ref={originalRef} className="mb-0">
           <img src={originalText} alt="Original" title="Original Italian" loading="eager" width={500} height={125} className="w-[230px] md:w-[380px] lg:w-[500px] h-auto mx-auto" />
         </div>
 
         {/* ITALIAN - ENORME, appena sotto Original */}
-        <div className="relative z-10 -mt-16 md:-mt-[136px] lg:-mt-[184px]">
+        <div ref={italianRef} className="relative z-10 -mt-16 md:-mt-[136px] lg:-mt-[184px]">
           <img src={italianText} alt="Italian" title="Italian Meat" loading="eager" width={940} height={256} className="w-[85vw] md:w-[80vw] lg:w-[70vw] max-w-[940px] h-auto mx-auto" />
         </div>
       </div>
 
       {/* Piatto di carne rotante - posizionato più in alto */}
       <div
+        ref={steakRef}
         className="absolute left-1/2 -translate-x-1/2 w-[700px] md:w-[1000px] lg:w-[1300px] xl:w-[1550px]"
         style={{
           top: 'calc(12% + 96px)',
@@ -105,6 +175,7 @@ export default function Hero() {
 
       {/* Pulsante CHIAMA - sul bordo della curva bianca */}
       <div
+        ref={callButtonRef}
         className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center"
         style={{
           bottom: '300px',
