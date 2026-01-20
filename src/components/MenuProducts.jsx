@@ -1,12 +1,12 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import asado from '../assets/menu/asado-argentino.jpg'
-import costata from '../assets/menu/costata.jpg'
-import fiorentina from '../assets/menu/fiorentina.jpg'
-import picanha from '../assets/menu/picanha.jpg'
-import tagliata from '../assets/menu/tagliata.jpg'
-import tartare from '../assets/menu/tartare.jpg'
+import asado from '../assets/menu/asado-argentino.webp'
+import costata from '../assets/menu/costata.webp'
+import fiorentina from '../assets/menu/fiorentina.webp'
+import picanha from '../assets/menu/picanha.webp'
+import tagliata from '../assets/menu/tagliata.webp'
+import tartare from '../assets/menu/tartare.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 

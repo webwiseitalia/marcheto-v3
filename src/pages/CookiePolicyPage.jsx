@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../assets/images/logo_marcheto.png'
+import logo from '../assets/images/logo_marcheto.webp'
 import siteData from '../constants/siteData'
 
 export default function CookiePolicyPage() {

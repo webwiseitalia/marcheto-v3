@@ -115,7 +115,11 @@ export default function InterSection() {
                 {/* Thumbnail YouTube */}
                 <img
                   src="https://img.youtube.com/vi/gJzQHpT-PnQ/maxresdefault.jpg"
-                  alt="Video Marcheto"
+                  alt="Video Marcheto - Macelleria e Griglieria"
+                  title="Guarda il video di Marcheto"
+                  loading="lazy"
+                  width={1280}
+                  height={720}
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     e.target.src = 'https://img.youtube.com/vi/gJzQHpT-PnQ/hqdefault.jpg'

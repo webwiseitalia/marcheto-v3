@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import rosemarine2 from '../assets/images/rosemarine-2.png'
+import rosemarine2 from '../assets/images/rosemarine-2.webp'
 import { GiMeat, GiChefToque, GiSausage, GiCookingPot } from 'react-icons/gi'
 import { BiLike } from 'react-icons/bi'
 import { HiOutlineHome } from 'react-icons/hi'

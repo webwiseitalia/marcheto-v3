@@ -2,9 +2,9 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
-import burger from '../assets/images/burger.png'
-import rosemarine from '../assets/images/rosemarine.png'
-import rosemarine2 from '../assets/images/rosemarine-2.png'
+import burger from '../assets/images/burger.webp'
+import rosemarine from '../assets/images/rosemarine.webp'
+import rosemarine2 from '../assets/images/rosemarine-2.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 

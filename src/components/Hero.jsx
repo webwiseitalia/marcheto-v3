@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import steak from '../assets/images/steak.png'
-import bgImage from '../assets/images/bg-image.png'
+import steak from '../assets/images/steak.webp'
+import bgImage from '../assets/images/bg-image.webp'
 import originalText from '../assets/images/slider-02.webp'
-import italianText from '../assets/images/slider-01.png'
-import badgeBg from '../assets/images/slider-03.png'
-import todayOffer from '../assets/images/slider-04.png'
-import rosemarine from '../assets/images/rosemarine.png'
-import rosemarine2 from '../assets/images/rosemarine-2.png'
+import italianText from '../assets/images/slider-01.webp'
+import badgeBg from '../assets/images/slider-03.webp'
+import todayOffer from '../assets/images/slider-04.webp'
+import rosemarine from '../assets/images/rosemarine.webp'
+import rosemarine2 from '../assets/images/rosemarine-2.webp'
 
 export default function Hero() {
   const heroRef = useRef(null)
