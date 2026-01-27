@@ -11,43 +11,43 @@ gsap.registerPlugin(ScrollTrigger)
 
 const menuCategories = {
   antipasti: [
-    { name: 'Tagliere Marcheto', description: 'Affettati misti, salame di cervo, tegole calde di polenta con formaggio.', price: '18' },
-    { name: 'Tagliere Camuno', description: 'Affettati misti, formaggi misti camuni, sottoli della casa.', price: '18' },
-    { name: 'Carpaccio', description: 'Con scaglie di grana.', price: '18' },
-    { name: 'Slinzega', description: 'Produzione propria con grana o limone.', price: '18' },
-    { name: 'Carne Salata', description: 'Con cipolle.', price: '18' },
-    { name: 'Tartare', description: 'Di manzo o cavallo.', price: '22' },
+    { name: 'Tagliere Marcheto', description: 'Affettati misti, salame di cervo, tegole calde di polenta con formaggio.' },
+    { name: 'Tagliere Camuno', description: 'Affettati misti, formaggi misti camuni, sottoli della casa.' },
+    { name: 'Carpaccio', description: 'Con scaglie di grana.' },
+    { name: 'Slinzega', description: 'Produzione propria con grana o limone.' },
+    { name: 'Carne Salata', description: 'Con cipolle.' },
+    { name: 'Tartare', description: 'Di manzo o cavallo.' },
   ],
   brace: [
-    { name: 'Grigliata Mista', description: 'Controfiletto, coppa, filetto, braciola affumicata.', price: '4,50/etto' },
-    { name: 'Fiorentina', description: 'Peso a vostra discrezione.', price: 'al peso' },
-    { name: 'Costata', description: 'Scamorza o irlandese.', price: '27' },
-    { name: 'Cube Roll Argentina', description: 'Taglio pregiato argentino.', price: '27' },
-    { name: 'Asado Argentina', description: 'Costato di manzo.', price: '21' },
-    { name: 'Filetti di Manzo', description: 'Anche con funghi porcini.', price: '27' },
-    { name: 'Tagliata di Manzo', description: 'Classica tagliata alla brace.', price: '23' },
-    { name: 'Tagliata del "Giost"', description: 'Cavallo con olio e prezzemolo.', price: '23' },
-    { name: 'Tagliata di Picanha', description: 'Taglio brasiliano alla brace.', price: '23' },
-    { name: 'Hamburger di Cervo', description: 'Carne di cervo selezionata.', price: '20' },
-    { name: 'Cosce di Pollo Disossate', description: 'Agli aromi.', price: '22' },
-    { name: 'Costine alla Marcheto', description: 'La nostra specialità.', price: '22' },
+    { name: 'Grigliata Mista', description: 'Controfiletto, coppa, filetto, braciola affumicata.' },
+    { name: 'Fiorentina', description: 'Peso a vostra discrezione.' },
+    { name: 'Costata', description: 'Scamorza o irlandese.' },
+    { name: 'Cube Roll Argentina', description: 'Taglio pregiato argentino.' },
+    { name: 'Asado Argentina', description: 'Costato di manzo.' },
+    { name: 'Filetti di Manzo', description: 'Anche con funghi porcini.' },
+    { name: 'Tagliata di Manzo', description: 'Classica tagliata alla brace.' },
+    { name: 'Tagliata del "Giost"', description: 'Cavallo con olio e prezzemolo.' },
+    { name: 'Tagliata di Picanha', description: 'Taglio brasiliano alla brace.' },
+    { name: 'Hamburger di Cervo', description: 'Carne di cervo selezionata.' },
+    { name: 'Cosce di Pollo Disossate', description: 'Agli aromi.' },
+    { name: 'Costine alla Marcheto', description: 'La nostra specialità.' },
   ],
   contorni: [
-    { name: 'Patatine Fritte', description: 'Croccanti e dorate.', price: '3,50' },
-    { name: 'Insalata Verde o Mista', description: 'Fresca di stagione.', price: '3,50' },
-    { name: 'Pomodori', description: 'Freschi.', price: '3,50' },
-    { name: 'Cipolle Grigliate', description: 'Grigliate e caramellate.', price: '5' },
-    { name: 'Peperonata', description: 'Peperoni in padella.', price: '5' },
-    { name: 'Cavolo Rosso', description: 'Contorno della tradizione.', price: '5' },
-    { name: 'Puntarelle di Cicoria', description: 'Verdura fresca.', price: '5' },
-    { name: 'Carciofi', description: 'Di stagione.', price: '5' },
-    { name: 'Giardiniera della Casa', description: 'Produzione propria.', price: '5' },
-    { name: 'Porri Grigliati', description: 'Alla brace.', price: '5' },
+    { name: 'Patatine Fritte', description: 'Croccanti e dorate.' },
+    { name: 'Insalata Verde o Mista', description: 'Fresca di stagione.' },
+    { name: 'Pomodori', description: 'Freschi.' },
+    { name: 'Cipolle Grigliate', description: 'Grigliate e caramellate.' },
+    { name: 'Peperonata', description: 'Peperoni in padella.' },
+    { name: 'Cavolo Rosso', description: 'Contorno della tradizione.' },
+    { name: 'Puntarelle di Cicoria', description: 'Verdura fresca.' },
+    { name: 'Carciofi', description: 'Di stagione.' },
+    { name: 'Giardiniera della Casa', description: 'Produzione propria.' },
+    { name: 'Porri Grigliati', description: 'Alla brace.' },
   ],
   bimbi: [
-    { name: 'Menu Bimbi - Cotoletta', description: 'Cotoletta con patatine fritte.', price: '12' },
-    { name: 'Menu Bimbi - Würstel', description: 'Würstel con patatine fritte.', price: '12' },
-    { name: 'Menu Bimbi - Hamburger', description: 'Hamburger con patatine fritte.', price: '12' },
+    { name: 'Menu Bimbi - Cotoletta', description: 'Cotoletta con patatine fritte.' },
+    { name: 'Menu Bimbi - Würstel', description: 'Würstel con patatine fritte.' },
+    { name: 'Menu Bimbi - Hamburger', description: 'Hamburger con patatine fritte.' },
   ],
 }
 
@@ -390,22 +390,12 @@ export default function MenuPage() {
                 ref={el => menuItemsRef.current[index] = el}
                 className="py-4 group"
               >
-                {/* Riga principale: Nome + linea punteggiata + Prezzo */}
+                {/* Riga principale: Nome piatto */}
                 <div className="flex items-baseline gap-2">
                   {/* Nome piatto */}
-                  <h3 className="text-gray-900 font-bold text-base md:text-lg uppercase tracking-wide flex-shrink-0">
+                  <h3 className="text-gray-900 font-bold text-base md:text-lg uppercase tracking-wide">
                     {item.name}
                   </h3>
-
-                  {/* Linea punteggiata che si espande */}
-                  <div className="flex-1 border-b-2 border-dotted border-gray-300 mx-2 mb-1" />
-
-                  {/* Prezzo */}
-                  <div className="flex-shrink-0">
-                    <span className="text-[#c41e3a] font-bold text-lg md:text-xl">
-                      {item.price.includes('peso') || item.price.includes('etto') ? item.price : `€${item.price}`}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Riga secondaria: Descrizione */}
@@ -423,12 +413,6 @@ export default function MenuPage() {
             </p>
           )}
 
-          {/* Coperto */}
-          <div className="mt-12 pt-8 border-t border-gray-200 text-center">
-            <p className="text-gray-600 text-sm">
-              <span className="font-semibold">Coperto:</span> €1,50
-            </p>
-          </div>
         </div>
       </section>
 

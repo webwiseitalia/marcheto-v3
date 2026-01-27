@@ -15,7 +15,6 @@ const products = [
     image: asado,
     name: 'Asado Argentina',
     description: 'Costato di manzo cotto lentamente sulla brace, per un sapore autentico e irresistibile.',
-    price: '€21',
     badge: null,
     badgeColor: null,
     tag: 'CHEF LOVE'
@@ -24,7 +23,6 @@ const products = [
     image: costata,
     name: 'Costata',
     description: 'Scamorza o irlandese, cotta alla perfezione sulla brace per un gusto intenso e raffinato.',
-    price: '€27',
     badge: null,
     tag: null
   },
@@ -32,7 +30,6 @@ const products = [
     image: fiorentina,
     name: 'Fiorentina',
     description: 'Bistecca spessa, tipica della tradizione toscana, peso a vostra discrezione.',
-    price: 'al peso',
     badge: 'HOT',
     badgeColor: 'bg-red-500',
     tag: null
@@ -41,7 +38,6 @@ const products = [
     image: picanha,
     name: 'Tagliata di Picanha',
     description: 'Taglio brasiliano alla brace, caratterizzato da una crosta di grasso che la rende succulenta e saporita.',
-    price: '€23',
     badge: null,
     tag: 'DA PROVARE'
   },
@@ -49,7 +45,6 @@ const products = [
     image: tagliata,
     name: 'Tagliata di Manzo',
     description: 'Classica tagliata alla brace, grigliata e tagliata a fette sottili.',
-    price: '€23',
     badge: 'HOT',
     badgeColor: 'bg-red-500',
     tag: 'LA CLASSICA'
@@ -58,7 +53,6 @@ const products = [
     image: tartare,
     name: 'Tartare',
     description: 'Di manzo o cavallo, carne cruda tritata finemente, condita con olio, limone e spezie.',
-    price: '€22',
     badge: null,
     tag: 'CHEF LOVE'
   },
@@ -170,13 +164,6 @@ export default function MenuProducts() {
                 <p className="text-gray-500 text-sm leading-relaxed mb-2">
                   {product.description}
                 </p>
-              </div>
-
-              {/* Prezzo */}
-              <div className="flex-shrink-0 pt-2">
-                <span className="text-gray-900 text-xl md:text-2xl font-bold">
-                  {product.price}
-                </span>
               </div>
             </div>
           ))}
