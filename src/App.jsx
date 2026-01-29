@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Categories from './components/Categories'
+import GiftCard from './components/GiftCard'
 import StreetFood from './components/StreetFood'
 import Reviews from './components/Reviews'
 import InterSection from './components/InterSection'
@@ -19,6 +20,7 @@ function HomePage() {
       <Header />
       <Hero />
       <Categories />
+      <GiftCard />
       <StreetFood />
       <Reviews />
       <InterSection />

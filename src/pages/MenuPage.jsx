@@ -21,7 +21,7 @@ const menuCategories = {
   brace: [
     { name: 'Grigliata Mista', description: 'Controfiletto, coppa, filetto, braciola affumicata.' },
     { name: 'Fiorentina', description: 'Peso a vostra discrezione.' },
-    { name: 'Costata', description: 'Scamorza o irlandese.' },
+    { name: 'Costata', description: 'Costata scottona o irlandese.' },
     { name: 'Cube Roll Argentina', description: 'Taglio pregiato argentino.' },
     { name: 'Asado Argentina', description: 'Costato di manzo.' },
     { name: 'Filetti di Manzo', description: 'Anche con funghi porcini.' },

@@ -22,7 +22,7 @@ const products = [
   {
     image: costata,
     name: 'Costata',
-    description: 'Scamorza o irlandese, cotta alla perfezione sulla brace per un gusto intenso e raffinato.',
+    description: 'Costata scottona o irlandese, cotta alla perfezione sulla brace per un gusto intenso e raffinato.',
     badge: null,
     tag: null
   },
